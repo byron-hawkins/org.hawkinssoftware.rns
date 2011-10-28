@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.hawkinssoftware.rns</groupId>
+	<artifactId>rns</artifactId>
+	<version>0.1-alpha-1-2011.10.28-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>rns</name>
+	<description>Role Normalization and Synthesis</description>
+
+	<properties>
+		<domain-name>org.hawkinssoftware</domain-name>
+		<repository-username>byron-hawkins</repository-username>
+		<repository-name>${domain.name}.${project.artifactId}.git</repository-name>
+	</properties>
+
+	<scm>
+		<connection>scm:git:git@github.com:${repository-username}/${repository-name}</connection>
+		<url>scm:git:git@github.com:${repository-username}/${repository-name}</url>
+		<developerConnection>scm:git:git@github.com:${repository-username}/${repository-name}</developerConnection>
+	</scm>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0-beta-9</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>../rns-agent</module>
+		<module>../rns-ast-analyzer</module>
+		<module>../rns-core</module>
+	</modules>
+
+</project>
