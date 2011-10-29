@@ -11,7 +11,8 @@
 package org.hawkinssoftware.rns.core.test;
 
 /**
- * DOC comment task awaits.
+ * A random manual test of the RNS type restrictions. Also used 
+ * for verifying the exact 
  * 
  * @author Byron Hawkins
  */
