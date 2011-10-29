@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.core.moa;
 
 import java.io.PrintStream;
@@ -16,21 +26,41 @@ import org.hawkinssoftware.rns.core.util.EnumeratedProperties;
 import org.hawkinssoftware.rns.core.util.EnumeratedProperties.PropertyStatus;
 import org.hawkinssoftware.rns.core.util.RNSUtils;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class ExecutionPath
 {
 	// TODO: would be nice to apply this to every contained type, but it's hard to find them in BCEL
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	@Target(value = { ElementType.TYPE, ElementType.METHOD })
 	@Retention(RetentionPolicy.CLASS)
 	public @interface NoFrame
 	{
 	}
 
+	/**
+	 * An asynchronous update interface for receiving notifications about Stack information as the Stack is constructed.
+	 */
 	public interface StackObserver
 	{
 		void sendingMessage(TypeRole senderRole, TypeRole receiverRole, Object receiver, String messageDescription);
 
 		void messageReturningFrom(TypeRole receiverRole, Object receiver);
 
+		/**
+		 * DOC comment task awaits.
+		 * 
+		 * @param <ObserverType>
+		 *            the generic type
+		 * @author Byron Hawkins
+		 */
 		public interface Factory<ObserverType extends StackObserver>
 		{
 			ObserverType create();
@@ -39,6 +69,11 @@ public class ExecutionPath
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private static class CurrentCaller
 	{
 		private Class<?> caller;
@@ -61,6 +96,11 @@ public class ExecutionPath
 		}
 	};
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class Universe
 	{
 		public static Universe getInstance()

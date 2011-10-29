@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.core.moa;
 
 import java.util.ArrayList;
@@ -11,14 +21,28 @@ import org.hawkinssoftware.rns.core.role.TypeRole;
 import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
 import org.hawkinssoftware.rns.core.util.RNSUtils;
 
+/**
+ * An asynchronous update interface for receiving notifications about Domain information as the Domain is constructed.
+ */
 public class DomainObserver implements ExecutionPath.StackObserver
 {
+	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public interface Listener
 	{
 		void orthogonalityViolation(DomainSpecificationRegistry.CollaborationEvaluation evaluation);
 	}
 
 	// WIP: better listener handling (complicated with the distribution of observer instances...)
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class Factory implements ExecutionPath.StackObserver.Factory<DomainObserver>
 	{
 		private final Listener listener;
@@ -43,6 +67,11 @@ public class DomainObserver implements ExecutionPath.StackObserver
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private class Frame
 	{
 		final TypeRole receiverRole;

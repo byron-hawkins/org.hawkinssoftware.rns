@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.core.role;
 
 import java.lang.annotation.ElementType;
@@ -12,8 +22,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class DomainRole extends CommunicationRole
 {
+	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.TYPE)
 	public @interface Join
@@ -21,6 +42,11 @@ public class DomainRole extends CommunicationRole
 		Class<? extends DomainRole>[] membership() default {};
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.FIELD)
 	public @interface Instance
@@ -46,6 +72,11 @@ public class DomainRole extends CommunicationRole
 		return false;
 	}
 	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class OrthogonalSet
 	{
 		final List<DomainRole> domainsAssembly = new ArrayList<DomainRole>();
@@ -55,6 +86,11 @@ public class DomainRole extends CommunicationRole
 		public final List<String> packagePatterns = Collections.unmodifiableList(packagePatternsAssembly);
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class Resolver
 	{
 		private static final Map<Class<? extends DomainRole>, DomainRole> INSTANCE_CACHE = new HashMap<Class<? extends DomainRole>, DomainRole>();

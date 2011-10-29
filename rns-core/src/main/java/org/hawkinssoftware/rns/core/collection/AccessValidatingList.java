@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.core.collection;
 
 import java.util.Collection;
@@ -5,6 +15,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @param <T>
+ *            the generic type
+ * @author Byron Hawkins
+ */
 public class AccessValidatingList<T> implements List<T>, AccessValidatedCollection<List<T>>
 {
 	public static <T> AccessValidatingList<T> create(List<T> list)

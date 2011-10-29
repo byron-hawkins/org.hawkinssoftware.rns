@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.core.aop;
 
 import java.lang.annotation.ElementType;
@@ -13,12 +23,24 @@ import org.hawkinssoftware.rns.core.publication.VisibilityConstraint;
 import org.hawkinssoftware.rns.core.role.CoreDomains.InitializationDomain;
 import org.hawkinssoftware.rns.core.util.DefinesIdentity;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface InitializationAspect
 {
 	Class<? extends Agent<?>> agent();
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @param <Type>
+	 *            the generic type
+	 * @author Byron Hawkins
+	 */
 	@DefinesIdentity
 	@InvocationConstraint
 	@ExtensionConstraint(domains = InitializationDomain.class)
@@ -28,6 +50,11 @@ public @interface InitializationAspect
 		void initialize(Type instance);
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class Pointcut
 	{
 		// TODO: this can be implemented without keeping a set here, if it becomes too bulky. When a class has multiple

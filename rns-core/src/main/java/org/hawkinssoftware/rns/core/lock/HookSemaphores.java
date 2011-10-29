@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.core.lock;
 
 import java.lang.annotation.ElementType;
@@ -12,6 +22,11 @@ import java.util.List;
 
 import org.hawkinssoftware.rns.core.publication.InvocationConstraint;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface HookSemaphores
@@ -20,9 +35,20 @@ public @interface HookSemaphores
 
 	String instance() default "INSTANCE";
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	@InvocationConstraint(packages = "org.hawkinssoftware.rns.agent.*")
 	public static class Relay
 	{
+		
+		/**
+		 * DOC comment task awaits.
+		 * 
+		 * @author Byron Hawkins
+		 */
 		private static class ThreadContext
 		{
 			final List<SynchronizedMethodEntry> methodEntryStack = new ArrayList<SynchronizedMethodEntry>();
@@ -51,6 +77,11 @@ public @interface HookSemaphores
 			}
 		}
 
+		/**
+		 * DOC comment task awaits.
+		 * 
+		 * @author Byron Hawkins
+		 */
 		private static class SynchronizedMethodEntry
 		{
 			final Class<?> hookedType;

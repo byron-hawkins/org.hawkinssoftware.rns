@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.core.aop;
 
 import java.util.ArrayList;
@@ -7,14 +17,28 @@ import java.util.Set;
 
 import org.hawkinssoftware.rns.core.role.DomainRole;
 
+/**
+ * An asynchronous update interface for receiving notifications about ClassLoad information as the ClassLoad is
+ * constructed.
+ */
 public class ClassLoadObserver
 {
+	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class ClassLoadObservationDomain extends DomainRole
 	{
 		@DomainRole.Instance
 		public static final ClassLoadObservationDomain INSTANCE = new ClassLoadObservationDomain();
 	}
 
+	/**
+	 * An asynchronous update interface for receiving notifications about Filtered information as the Filtered is
+	 * constructed.
+	 */
 	public interface FilteredObserver
 	{
 		String[] getObservedTypenames();
@@ -24,6 +48,11 @@ public class ClassLoadObserver
 		void matchingTypeObserved(ObservedType type);
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public interface MethodFilter
 	{
 		boolean acceptMethodName(String name);
@@ -33,6 +62,11 @@ public class ClassLoadObserver
 		String getParameterType(int index);
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class ObservedType
 	{
 		public final Set<String> observedTypes;
@@ -50,6 +84,11 @@ public class ClassLoadObserver
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class ObservedMethod
 	{
 		public final String name;
@@ -62,6 +101,11 @@ public class ClassLoadObserver
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class TypeHierarchy
 	{
 		public final String qualifiedName;
