@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile.source;
 
 import java.util.Collection;
@@ -34,6 +44,11 @@ import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class ParsedJavaSource
 {
 	private static final String RELATED_TYPENAME_MARKER_ATTRIBUTE = "org.hawkinssoftware.rns.analysis.compile.related-typename";
@@ -171,6 +186,11 @@ public class ParsedJavaSource
 		return source.findPrimaryType().getTypeQualifiedName();
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private class ReferenceRequestor implements SourceInstructionCollector.CollectionRequestor
 	{
 		@Override
@@ -306,6 +326,11 @@ public class ParsedJavaSource
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private static class InstructionKey
 	{
 		final Enum<?> kind;

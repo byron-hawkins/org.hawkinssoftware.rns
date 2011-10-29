@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile;
 
 import java.util.HashMap;
@@ -30,6 +40,11 @@ import org.hawkinssoftware.rns.analysis.compile.util.RNSBuildAnalyzerUtils;
 import org.hawkinssoftware.rns.core.log.Log;
 import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAnalysisEngine.DependencyCollector
 {
 	public static RNSBuildAnalyzer getAnalyzer(IProject project)
@@ -248,6 +263,11 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 		}
 	}
 	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	static abstract class Task
 	{
 		private IProgressMonitor progressMonitor;
@@ -303,6 +323,11 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private class DeltaVisitor implements IResourceDeltaVisitor
 	{
 		private int changedSources;

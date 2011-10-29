@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile.domain;
 
 import java.util.ArrayList;
@@ -25,13 +35,29 @@ import com.google.common.collect.Multimap;
  * For a particular build pass, no domain role type bindings may be accessed until all the domain roles for the
  * currently-building project and its dependencies have been resolved.
  * 
- * @author b
+ * @author Byron Hawkins
  */
 // TODO: check for circular @DomainRole.Join declarations
 public class DomainRoleTypeBinding
 {
+	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public static class Cache
 	{
+		
+		/**
+		 * The listener interface for receiving change events. The class that is interested in processing a change event
+		 * implements this interface, and the object created with that class is registered with a component using the
+		 * component's <code>addChangeListener<code> method. When
+		 * the change event occurs, that object's appropriate
+		 * method is invoked.
+		 * 
+		 * @see ChangeEvent
+		 */
 		public interface ChangeListener
 		{
 			void domainsChanged(String typename);

@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile.publication;
 
 import java.lang.annotation.Annotation;
@@ -12,9 +22,20 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.corext.refactoring.rename.MethodChecks;
 import org.hawkinssoftware.rns.core.util.UnknownEnumConstantException;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 @SuppressWarnings("restriction")
 public class PublicationMethodConstraintCollector
 {
+	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	enum Type
 	{
 		METHOD_CALL,
@@ -22,6 +43,11 @@ public class PublicationMethodConstraintCollector
 		METHOD_PROXY;
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private class MethodScanPass
 	{
 		final List<AggregatePublicationConstraint> applicableConstraints = new ArrayList<AggregatePublicationConstraint>();
@@ -214,6 +240,11 @@ public class PublicationMethodConstraintCollector
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	interface CollectionRuleProvider
 	{
 		AggregatePublicationConstraint getDirectConstraints(IType type, IMethod method) throws JavaModelException;
@@ -221,6 +252,11 @@ public class PublicationMethodConstraintCollector
 		IType[] getRelevantSupertypes(ITypeHierarchy hierarchy, IType type);
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	class MethodCallProvider implements CollectionRuleProvider
 	{
 		@Override
@@ -245,6 +281,11 @@ public class PublicationMethodConstraintCollector
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	class MethodOverrideProvider implements CollectionRuleProvider
 	{
 		@Override
@@ -272,6 +313,11 @@ public class PublicationMethodConstraintCollector
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	class MethodProxyProvider implements CollectionRuleProvider
 	{
 		@Override

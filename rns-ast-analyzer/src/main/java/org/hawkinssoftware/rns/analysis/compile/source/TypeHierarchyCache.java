@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile.source;
 
 import java.util.HashMap;
@@ -17,6 +27,11 @@ import org.hawkinssoftware.rns.core.log.Log;
 import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
 
 // TODO: hierarchies will become obsolete on type deletion or name change, and this is somewhat hard to detect
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class TypeHierarchyCache
 {
 	public static TypeHierarchyCache getInstance()
@@ -105,6 +120,15 @@ public class TypeHierarchyCache
 		hierarchiesByTypename.remove(typename).removeTypeHierarchyChangedListener(listener);
 	}
 
+	/**
+	 * The listener interface for receiving hierarchy events. The class that is interested in processing a hierarchy
+	 * event implements this interface, and the object created with that class is registered with a component using the
+	 * component's <code>addHierarchyListener<code> method. When
+	 * the hierarchy event occurs, that object's appropriate
+	 * method is invoked.
+	 * 
+	 * @see HierarchyEvent
+	 */
 	private class HierarchyListener implements ITypeHierarchyChangedListener, JavaSourceParser.Listener
 	{
 		private final Set<String> changedTypenames = new HashSet<String>();

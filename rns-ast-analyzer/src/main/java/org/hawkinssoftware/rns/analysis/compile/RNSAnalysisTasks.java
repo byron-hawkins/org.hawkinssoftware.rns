@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile;
 
 import org.eclipse.core.runtime.CoreException;
@@ -5,8 +15,19 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.hawkinssoftware.rns.analysis.compile.source.JavaSourceParser;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 interface RNSAnalysisTasks
 {
+	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	static class ParseSources extends RNSBuildAnalyzer.Task implements JavaSourceParser.Listener
 	{
 		private static final int TICKS_PER_SOURCE = 15;
@@ -42,6 +63,11 @@ interface RNSAnalysisTasks
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	static class AnalyzeSources extends RNSBuildAnalyzer.Task
 	{
 		private static final int TICKS_PER_SOURCE = 10;
@@ -69,6 +95,11 @@ interface RNSAnalysisTasks
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	static class AnalyzeDependentTypes extends RNSBuildAnalyzer.Task
 	{
 		private static final int TICKS_PER_TYPE = 2;
@@ -96,6 +127,11 @@ interface RNSAnalysisTasks
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	static class AnalyzeReferredTypes extends RNSBuildAnalyzer.Task
 	{
 		private static final int TICKS_PER_TYPE = 1;

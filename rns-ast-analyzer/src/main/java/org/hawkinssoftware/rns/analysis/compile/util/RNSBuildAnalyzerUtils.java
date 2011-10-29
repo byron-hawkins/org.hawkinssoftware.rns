@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile.util;
 
 import java.util.ArrayList;
@@ -36,6 +46,11 @@ import org.eclipse.ui.progress.UIJob;
 import org.hawkinssoftware.rns.core.log.Log;
 import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class RNSBuildAnalyzerUtils
 {
 	private static final String COMPILATION_ERROR_MARKER_TYPE = "org.eclipse.jdt.core.problem";
@@ -188,6 +203,11 @@ public class RNSBuildAnalyzerUtils
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private enum StatusBarAction
 	{
 		SHOW_MESSAGE,

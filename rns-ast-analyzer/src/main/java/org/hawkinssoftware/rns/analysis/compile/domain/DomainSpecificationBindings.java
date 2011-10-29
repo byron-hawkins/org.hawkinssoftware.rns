@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.analysis.compile.domain;
 
 import java.util.ArrayList;
@@ -10,6 +20,11 @@ import java.util.Set;
 import org.eclipse.jdt.core.JavaModelException;
 import org.hawkinssoftware.rns.core.role.DomainSpecifications;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class DomainSpecificationBindings
 {
 	final List<OrthogonalSet> orthogonalSets = new ArrayList<OrthogonalSet>();
@@ -62,6 +77,11 @@ public class DomainSpecificationBindings
 		return false;
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	static class OrthogonalSet
 	{
 		final Set<DomainRoleTypeBinding> domains;
@@ -114,6 +134,11 @@ public class DomainSpecificationBindings
 		}
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	static class EvaluationResult
 	{
 		private List<String> problems = null;
