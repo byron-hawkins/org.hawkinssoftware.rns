@@ -61,8 +61,7 @@ project by:
         + package patterns
         + classnames
 1. Enforce synchronized field access at runtime
-    * Restrict access by read and/or write
-    * Field-to-sempahore restrictions specified by annotation
+    * Use field annotations `@ValidateRead` and/or `@ValidateWrite`
     * Wrap collections with access restrictions
 1. Object message meta-processing (MOA)
     * Query the call stack for instances by classname
