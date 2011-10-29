@@ -12,9 +12,9 @@ the prototype Java implementation of
 2. the Eclipse AST analyzer [rns-ast-analyzer]
 3. the bytecode instrumentation agent [rns-agent]
 
-[rns-core]: http://not.sure
-[rns-ast-analyzer]: http://not.sure
-[rns-agent]: http://not.sure
+[rns-core]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/README.md
+[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
+[rns-agent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-agent/blob/master/rns-agent/README.md
 
 #### Usage
 
@@ -32,11 +32,10 @@ project by:
    Eclipse Public License v1.0
 2. Source code may be obtained from [GitHub]
 3. Snapshots are available from my [Maven repository][snapshots]
-4. Documentation can be found at [HawkinsSoftware][hs]   
+4. Documentation can be found at [HawkinsSoftware][website]   
 
 [GitHub]: https://www.github.com/byron-hawkins
 [snapshots]: https://www.github.com/byron-hawkins/snapshots
-[hs]: http://www.hawkinssoftware.net/oss/rns
    
 #### Features
 
