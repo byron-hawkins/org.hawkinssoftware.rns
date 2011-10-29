@@ -50,6 +50,8 @@
       <plugin id="javax.servlet"/>
       <plugin id="javax.servlet.jsp"/>
       <plugin id="javax.xml"/>
+      <plugin id="net.sf.jautodoc"/>
+      <plugin id="net.sf.jautodoc.velocity"/>
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.el"/>
