@@ -64,6 +64,7 @@
 		<dependency>
 			<groupId>org.apache.bcel</groupId>
 			<artifactId>bcel</artifactId>
+			<!-- latest: bcel-6.0-20111017.142955-8 -->
 			<version>6.0-20110805.040858-2</version>
 			<type>jar</type>
 			<scope>compile</scope>
