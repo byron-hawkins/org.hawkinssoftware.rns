@@ -34,7 +34,7 @@ project by:
 3. Snapshots are available from my [Maven repository][snapshots]
 4. Documentation can be found at [HawkinsSoftware][website]   
 
-[License][http://www.eclipse.org/legal/epl-v10.html]
+[License]: http://www.eclipse.org/legal/epl-v10.html
 [GitHub]: https://www.github.com/byron-hawkins
 [snapshots]: https://www.github.com/byron-hawkins/snapshots
    
