@@ -68,7 +68,7 @@ project by:
     * Observe every object message on a thread
         + Analyze collaborations among domains
         + Restrict the set of classes contacted by:
-            - a method body
+            - a method body (shallow or deep)
             - a thread while it holds a certain semaphore
     * Push properties onto the call stack
         + Retract properties explicitly or on method exit
