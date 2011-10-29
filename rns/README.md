@@ -29,11 +29,12 @@ project by:
 #### Resources
 
 1. All artifacts are made available under the accompanying
-   Eclipse Public License v1.0
+   [Eclipse Public License v1.0][License]
 2. Source code may be obtained from [GitHub]
 3. Snapshots are available from my [Maven repository][snapshots]
 4. Documentation can be found at [HawkinsSoftware][website]   
 
+[License][http://www.eclipse.org/legal/epl-v10.html]
 [GitHub]: https://www.github.com/byron-hawkins
 [snapshots]: https://www.github.com/byron-hawkins/snapshots
    
