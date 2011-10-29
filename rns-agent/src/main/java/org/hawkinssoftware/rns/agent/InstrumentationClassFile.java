@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.agent;
 
 import java.io.ByteArrayInputStream;
@@ -18,15 +28,26 @@ import org.apache.bcel.generic.BasicType;
 import org.apache.bcel.generic.ConstantPoolGen;
 import org.apache.bcel.generic.Type;
 import org.hawkinssoftware.rns.agent.util.ClassfileLoader;
-import org.hs.rns.core.aop.ClassLoadObserver;
-import org.hs.rns.core.aop.ClassLoadObserver.FilteredObserver;
-import org.hs.rns.core.aop.ClassLoadObserver.MethodFilter;
-import org.hs.rns.core.aop.ClassLoadObserver.ObservedMethod;
-import org.hs.rns.core.aop.ClassLoadObserver.ObservedType;
-import org.hs.rns.core.aop.ClassLoadObserver.TypeHierarchy;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.FilteredObserver;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.MethodFilter;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.ObservedMethod;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.ObservedType;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.TypeHierarchy;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class InstrumentationClassFile implements RNSInstrumentationConstants
 {
+	
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	private static class MethodCollector
 	{
 		final Map<String, ObservedMethod> methodsBySignature = new HashMap<String, ObservedMethod>();
@@ -235,6 +256,11 @@ public class InstrumentationClassFile implements RNSInstrumentationConstants
 		return parsedType.getBytes();
 	}
 
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public class Metadata
 	{
 		public final boolean isExcluded;

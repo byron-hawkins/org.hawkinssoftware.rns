@@ -8,7 +8,7 @@ import org.apache.bcel.generic.InstructionFactory;
 import org.hawkinssoftware.rns.agent.InstrumentationClassFile;
 
 /**
- * @author b
+ * @author Byron Hawkins
  * 
  */
 public class TestClassTransformer

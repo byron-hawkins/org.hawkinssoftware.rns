@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.agent;
 
 import java.util.HashMap;
@@ -8,10 +18,21 @@ import org.apache.bcel.generic.ConstantPoolGen;
 import org.apache.bcel.generic.InstructionFactory;
 import org.apache.bcel.generic.InvokeInstruction;
 import org.apache.bcel.generic.Type;
-import org.hs.rns.core.role.TypeRole;
+import org.hawkinssoftware.rns.core.role.TypeRole;
 
+/**
+ * A factory for creating InstrumentationMethod objects. DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class InstrumentationMethodFactory implements RNSInstrumentationConstants
 {
+
+	/**
+	 * DOC comment task awaits.
+	 * 
+	 * @author Byron Hawkins
+	 */
 	public enum MethodInvocation
 	{
 		POST_CALLER

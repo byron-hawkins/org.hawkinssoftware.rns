@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.agent.aop;
 
 import java.io.IOException;
@@ -9,7 +19,7 @@ import org.apache.bcel.generic.InstructionFactory;
 import org.hawkinssoftware.rns.agent.InstrumentationClassFile;
 
 /**
- * @author b
+ * @author Byron Hawkins
  * 
  */
 public class InitializationClassTransformer

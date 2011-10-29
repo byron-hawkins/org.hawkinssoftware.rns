@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.hs.rns.core.lock.HookSemaphores;
-import org.hs.rns.core.lock.SemaphoreHook;
-import org.hs.rns.core.role.DomainRole;
-import org.hs.rns.core.validation.ValidateWrite;
+import org.hawkinssoftware.rns.core.lock.HookSemaphores;
+import org.hawkinssoftware.rns.core.lock.SemaphoreHook;
+import org.hawkinssoftware.rns.core.role.DomainRole;
+import org.hawkinssoftware.rns.core.validation.ValidateWrite;
 
 import com.google.common.collect.HashMultimap;
 

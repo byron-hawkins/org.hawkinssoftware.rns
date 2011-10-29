@@ -1,19 +1,35 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.agent;
 
-import org.hs.rns.core.aop.InitializationAspect;
-import org.hs.rns.core.lock.HookSemaphores;
-import org.hs.rns.core.moa.ExecutionPath;
-import org.hs.rns.core.role.CommunicationRole;
-import org.hs.rns.core.role.DomainRole;
-import org.hs.rns.core.role.TypeRole;
-import org.hs.rns.core.validation.ValidateInvocation;
-import org.hs.rns.core.validation.ValidateRead;
-import org.hs.rns.core.validation.ValidateWrite;
-import org.hs.rns.core.validation.ValidationMethod;
+import org.hawkinssoftware.rns.core.aop.InitializationAspect;
+import org.hawkinssoftware.rns.core.lock.HookSemaphores;
+import org.hawkinssoftware.rns.core.moa.ExecutionPath;
+import org.hawkinssoftware.rns.core.role.CommunicationRole;
+import org.hawkinssoftware.rns.core.role.DomainRole;
+import org.hawkinssoftware.rns.core.role.TypeRole;
+import org.hawkinssoftware.rns.core.validation.ValidateInvocation;
+import org.hawkinssoftware.rns.core.validation.ValidateRead;
+import org.hawkinssoftware.rns.core.validation.ValidateWrite;
+import org.hawkinssoftware.rns.core.validation.ValidationMethod;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public interface RNSInstrumentationConstants
 {
-	static final String[] omittedNamespaces = new String[] { "org\\.hs\\.rns\\.core\\..*", "org\\.hs\\.rns\\.agent\\..*", "\\$.*", "sun\\..*", "com\\.sun\\..*" };
+	static final String[] omittedNamespaces = new String[] { "org\\.hawkinssoftware\\.rns\\.core\\..*", "org\\.hawkinssoftware\\.rns\\.agent\\..*", "\\$.*",
+			"sun\\..*", "com\\.sun\\..*" };
 
 	static final String EXECUTION_PATH_CLASSNAME = ExecutionPath.class.getName();
 	static final String EXECUTION_PATH_CONSTRAINT_CLASSNAME = ExecutionPath.StackObserver.class.getName();

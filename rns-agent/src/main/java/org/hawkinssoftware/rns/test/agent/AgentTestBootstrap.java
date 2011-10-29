@@ -1,8 +1,8 @@
 package org.hawkinssoftware.rns.test.agent;
 
-import org.hs.rns.core.aop.ClassLoadObserver;
-import org.hs.rns.core.aop.ClassLoadObserver.MethodFilter;
-import org.hs.rns.core.aop.ClassLoadObserver.ObservedType;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.MethodFilter;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.ObservedType;
 
 public class AgentTestBootstrap
 {

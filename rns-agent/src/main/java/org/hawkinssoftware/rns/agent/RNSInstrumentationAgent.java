@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2011 HawkinsSoftware
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Byron Hawkins of HawkinsSoftware
+ */
 package org.hawkinssoftware.rns.agent;
 
 import java.lang.instrument.ClassFileTransformer;
@@ -9,10 +19,15 @@ import org.hawkinssoftware.rns.agent.aop.InitializationClassTransformer;
 import org.hawkinssoftware.rns.agent.lock.SemaphoreClassTransformer;
 import org.hawkinssoftware.rns.agent.message.MessageStackClassTransformer;
 import org.hawkinssoftware.rns.agent.validation.ValidationClassTransformer;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver;
+import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.FilteredObserver;
 import org.hawkinssoftware.rns.test.agent.TestClassTransformer;
-import org.hs.rns.core.aop.ClassLoadObserver;
-import org.hs.rns.core.aop.ClassLoadObserver.FilteredObserver;
 
+/**
+ * DOC comment task awaits.
+ * 
+ * @author Byron Hawkins
+ */
 public class RNSInstrumentationAgent implements ClassFileTransformer
 {
 	private static final String TEST_AGENT = "test-agent";
