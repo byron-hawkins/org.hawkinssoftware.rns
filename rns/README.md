@@ -41,16 +41,16 @@ project by:
 #### Features
 
 1. Groups Java types into domains using `@DomainRole.Join`
-    * `DomainRole` definition supports sub-domain relationships
+    * `DomainRole` supports sub-domain relationships
     * Use domains to enforce orthogonality
-        + Membership: specify domains which may have no common 
+        + *Membership*: specify domains which must have no common 
           members
-        + Collaboration: specify domains which may never appear
+        + *Collaboration* specify domains which must never appear
           on the same call stack
-    * Enforce containment: e.g., domain A contains domain B
-        + Membership: require B to have no members outside A
-        + Collaboration: require execution of a call stack 
-          entering B to remain within A until it exits B
+    * Enforce containment: e.g., `DomainA` contains `DomainB`
+        + *Membership*: require `B` to have no members outside `A`
+        + *Collaboration*: require execution of a call stack 
+          entering `B` to remain within `A` until it exits `B`
 1. Restrict access to public classes and methods at compile time
     * Restrictions specified by annotation:
         + `@InvocationConstraint`: method invocation
@@ -65,21 +65,20 @@ project by:
     * Wrap collections with access restrictions
 1. Object message meta-processing (MOA)
     * Query the call stack for instances by classname
-    * Observe every object message passed on a thread
+    * Observe every object message on a thread
         + Analyze collaborations among domains
         + Restrict the set of classes contacted by:
             - a method body
             - a thread while it holds a certain semaphore
     * Push properties onto the call stack
         + Retract properties explicitly or on method exit
-1. Global post-constructor initialization of any type 
-    * Define initialization pointcuts by annotation
-        + Supports interfaces
-    * Observe class loading
-    	+ Universal to all ClassLoader instances
-    	+ Filter observation by:
-    		- type hierarchy
-    		- method pattern-matching 
+1. Global post-constructor AOP with `@InitializationAspect`
+    * Supports interfaces
+1. Observe class loading with `ClassLoadObserver`
+    * Universal to all ClassLoader instances
+    * Filter observation by:
+    	+ type hierarchy
+    	+ method pattern-matching 
 
 #### Purpose and Philosophy 
 
