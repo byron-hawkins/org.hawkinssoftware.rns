@@ -8,9 +8,9 @@ the prototype Java implementation of
 
 [website]: http://www.hawkinssoftware.net/oss/rns
 
-1. the pure Java library [rns-core]
-2. the Eclipse AST analyzer [rns-ast-analyzer]
-3. the bytecode instrumentation agent [rns-agent]
+1. a pure Java library [rns-core]
+2. an Eclipse AST analyzer [rns-ast-analyzer]
+3. a bytecode instrumentation agent [rns-agent]
 
 [rns-core]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/README.md
 [rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
@@ -47,19 +47,19 @@ project by:
           members
         + Collaboration: specify domains which may never appear
           on the same call stack
-    * Enforce containment: domain A contains domain B
+    * Enforce containment: e.g., domain A contains domain B
         + Membership: require B to have no members outside A
         + Collaboration: require execution of a call stack 
           entering B to remain within A until it exits B
 1. Restrict access to public classes and methods at compile time
-    * Supported restrictions:
-        + method invocation
-        + type visibility
-        + type extension
-    * Permissions granted by:
-        + domain
-        + package pattern
-        + classname
+    * Restrictions specified by annotation:
+        + `@InvocationConstraint`: method invocation
+        + `@VisibilityConstraint`: type visibility
+        + `@ExtensionConstraint`: type extension
+    * Permissions assigned by annotation entries specifying:
+        + domains
+        + package patterns
+        + classnames
 1. Enforce synchronized field access at runtime
     * Restrict access by read and/or write
     * Field-to-sempahore restrictions specified by annotation
@@ -72,7 +72,7 @@ project by:
             - a method body
             - a thread while it holds a certain semaphore
     * Push properties onto the call stack
-        + Automatic or explicit retraction
+        + Retract properties explicitly or on method exit
 1. Global post-constructor initialization of any type 
     * Define initialization pointcuts by annotation
         + Supports interfaces
