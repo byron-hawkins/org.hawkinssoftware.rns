@@ -1,6 +1,7 @@
  
 Role Normalization and Synthesis
 --------------------------------
+#### Reliability Tools and Techniques for Java
 
 The **rns** project is the parent of 3 modules that comprise 
 the prototype Java implementation of 
@@ -40,8 +41,8 @@ project by:
    
 #### Features
 
-1. Groups Java types into domains using `@DomainRole.Join`
-    * `DomainRole` supports sub-domain relationships
+1. Groups Java types into domains using <code>@[DomainRole].Join</code>
+    * <code>[DomainRole]</code> supports sub-domain relationships
     * Use domains to enforce orthogonality
         + *Membership*: specify domains which must have no common 
           members
@@ -53,15 +54,16 @@ project by:
           entering `B` to remain within `A` until it exits `B`
 1. Restrict access to public classes and methods at compile time
     * Restrictions specified by annotation:
-        + `@InvocationConstraint`: method invocation
-        + `@VisibilityConstraint`: type visibility
-        + `@ExtensionConstraint`: type extension
+        + <code>[@InvocationConstraint]</code>: method invocation
+        + <code>[@VisibilityConstraint]</code>: type visibility
+        + <code>[@ExtensionConstraint]</code>: type extension
     * Permissions assigned by annotation entries specifying:
         + domains
         + package patterns
         + classnames
 1. Enforce synchronized field access at runtime
-    * Use field annotations `@ValidateRead` and/or `@ValidateWrite`
+    * Use field annotations <code>[@ValidateRead]</code> and/or 
+      <code>[@ValidateWrite]</code>
     * Wrap collections with access restrictions
 1. Object message meta-processing (MOA)
     * Query the call stack for instances by classname
@@ -72,15 +74,24 @@ project by:
             - a thread while it holds a certain semaphore
     * Push properties onto the call stack
         + Retract properties explicitly or on method exit
-1. Global post-constructor AOP with `@InitializationAspect`
+1. Global post-constructor AOP with <code>[@InitializationAspect]</code>
     * Supports interfaces
-1. Observe class loading with `ClassLoadObserver`
+1. Observe class loading with <code>[ClassLoadObserver]</code>
     * Universal to all ClassLoader instances
     * Filter observation by:
     	+ type hierarchy
     	+ method pattern-matching 
 
-#### Purpose and Philosophy 
+[DomainRole]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/role/DomainRole.java
+[@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
+[@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
+[@ExtensionConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/ExtensionConstraint.java
+[ExecutionPath]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/moa/ExecutionPath.java
+[@InitializationAspect]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/InitializationAspect.java
+[@ValidateRead]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateRead.java
+[@ValidateWrite]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateWrite.java
+[ClassLoadObserver]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/ClassLoadObserver.java
+
 
       
 

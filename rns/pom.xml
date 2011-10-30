@@ -24,7 +24,7 @@
 	<properties>
 		<domain-name>org.hawkinssoftware</domain-name>
 		<repository-username>byron-hawkins</repository-username>
-		<repository-name>${domain.name}.${project.artifactId}.git</repository-name>
+		<repository-name>${domain-name}.${project.artifactId}.git</repository-name>
 		<email>rns@hawkinssoftware.net</email>
 	</properties>
 
@@ -47,9 +47,8 @@
 	</build>
 
 	<modules>
-		<module>../../../git/rns/agent/rns-agent</module>
-		<module>../../../git/rns/ast-analyzer/rns-ast-analyzer</module>
-		<module>../../../git/rns/core/rns-core</module>
+		<module>../../agent/rns-agent</module>
+		<module>../../ast-analyzer/rns-ast-analyzer</module>
+		<module>../../core/rns-core</module>
 	</modules>
-
 </project>
