@@ -9,9 +9,9 @@ the prototype Java implementation of
 
 [website]: http://www.hawkinssoftware.net/oss/rns
 
-1. a pure Java library [rns-core]
-2. an Eclipse AST analyzer [rns-ast-analyzer]
-3. a bytecode instrumentation agent [rns-agent]
+1. [rns-core], a pure Java library 
+2. [rns-ast-analyzer], an Eclipse AST analyzer 
+3. [rns-agent], a bytecode instrumentation agent 
 
 [rns-core]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/README.md
 [rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
@@ -26,6 +26,11 @@ project by:
 2. Installing the [rns-ast-analyzer] in their Eclipse workspace
 3. Deploying the [rns-agent] with any product that uses the 
    runtime features of **RNS**
+
+For an example of RNS usage, see the [Azia User Interface Library]
+[azia].
+
+[azia]: ...
 
 #### Resources
 
