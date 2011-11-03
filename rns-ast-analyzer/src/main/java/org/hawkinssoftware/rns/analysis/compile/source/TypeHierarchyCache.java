@@ -96,7 +96,7 @@ public class TypeHierarchyCache
 	public ITypeHierarchy establishHierarchy(IType type)
 	{
 		try
-		{ 
+		{
 			ITypeHierarchy hierarchy = get(type.getFullyQualifiedName());
 			if (hierarchy == null)
 			{
@@ -147,9 +147,9 @@ public class TypeHierarchyCache
 			// Solution A
 			// For each type hierarchy reported:
 			// 1. is the focal type in a changed source?
-			//      yes: does it have the same subs and supers?
-			//      yes: skip it
-			//      no:  find all types relating to the focal type and mark them dirty 
+			// yes: does it have the same subs and supers?
+			// yes: skip it
+			// no: find all types relating to the focal type and mark them dirty
 			// --> (mark all, before and after refresh, to get all obsoletes and news)
 
 			if (isRelevant)
@@ -180,8 +180,13 @@ public class TypeHierarchyCache
 			}
 			catch (CoreException e)
 			{
-				Log.out(Tag.CRITICAL, "Failed to register type changes for source change in %s (%s).", source.findPrimaryType().getTypeQualifiedName(),
-						source.getPath());
+				String typeDescription = "<unknown-type>";
+				IType primaryType = source.findPrimaryType();
+				if (primaryType != null)
+				{
+					typeDescription = primaryType.getTypeQualifiedName();
+				}
+				Log.out(Tag.CRITICAL, "Failed to register type changes for source change in %s (%s).", typeDescription, source.getPath());
 			}
 		}
 	}

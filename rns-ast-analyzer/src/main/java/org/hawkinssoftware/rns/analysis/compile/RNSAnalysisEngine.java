@@ -46,7 +46,7 @@ import com.google.common.collect.Multimap;
  */
 public class RNSAnalysisEngine implements JavaSourceParser.Listener, DomainRoleTypeBinding.Cache.ChangeListener
 {
-	
+
 	/**
 	 * DOC comment task awaits.
 	 * 
@@ -229,6 +229,11 @@ public class RNSAnalysisEngine implements JavaSourceParser.Listener, DomainRoleT
 	public void sourceParsed(ICompilationUnit source, CompilationUnit ast)
 	{
 		IType type = source.findPrimaryType();
+		if (type == null)
+		{
+			Log.out(Tag.WARNING, "No primary type for parsed source %s. Skipping analysis.", source.getResource().getProjectRelativePath());
+			return;
+		}
 
 		ParsedJavaSource parsedSource = sourcesByTypename.get(type.getFullyQualifiedName());
 		if (parsedSource == null)

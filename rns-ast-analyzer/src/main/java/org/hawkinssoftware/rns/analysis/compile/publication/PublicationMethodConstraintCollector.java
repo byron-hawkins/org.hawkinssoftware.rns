@@ -20,6 +20,8 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.ITypeHierarchy;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.corext.refactoring.rename.MethodChecks;
+import org.hawkinssoftware.rns.core.log.Log;
+import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
 import org.hawkinssoftware.rns.core.util.UnknownEnumConstantException;
 
 /**
@@ -30,7 +32,7 @@ import org.hawkinssoftware.rns.core.util.UnknownEnumConstantException;
 @SuppressWarnings("restriction")
 public class PublicationMethodConstraintCollector
 {
-	
+
 	/**
 	 * DOC comment task awaits.
 	 * 
@@ -129,16 +131,25 @@ public class PublicationMethodConstraintCollector
 			return directDeclaration;
 		}
 
-		IMethod override = MethodChecks.overridesAnotherMethod(method, hierarchy);
-		while (override != null)
+		try
 		{
-			if (override.getDeclaringType().getFullyQualifiedName().equals(inType.getFullyQualifiedName()))
+			IMethod override = MethodChecks.overridesAnotherMethod(method, hierarchy);
+			while (override != null)
 			{
-				return override;
+				if (override.getDeclaringType().getFullyQualifiedName().equals(inType.getFullyQualifiedName()))
+				{
+					return override;
+				}
+				override = MethodChecks.overridesAnotherMethod(override, hierarchy);
 			}
-			override = MethodChecks.overridesAnotherMethod(override, hierarchy);
+			return null;
 		}
-		return null;
+		catch (JavaModelException e)
+		{
+			Log.out(Tag.WARNING, "Warning: model exception attempting to find a method that overrides %s.%s()", inType.getFullyQualifiedName(),
+					method.getElementName());
+			return null;
+		}
 	}
 
 	/**

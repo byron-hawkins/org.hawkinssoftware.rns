@@ -3,27 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>rns-ast-analyzer</artifactId>
-	<packaging>jar</packaging>
-
-	<name>rns-ast-analyzer</name>
-	<url>http://maven.apache.org</url>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<packaging>eclipse-plugin</packaging>
+	<name>RNS AST Analyzer</name>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>0.12.0</version>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.1</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -31,6 +18,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 	<repositories>
 		<repository>
 			<id>sonatype-beta</id>
@@ -38,30 +26,22 @@
 			<url>http://repository.sonatype.org/content/groups/sonatype-public-grid/</url>
 		</repository>
 	</repositories>
+	
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.hawkinssoftware.rns</groupId>
 			<artifactId>rns-core</artifactId>
-			<version>0.1-alpha-1-2011.10.28-SNAPSHOT</version>
+			<version>0.1-alpha-1-2011.11.01-SNAPSHOT</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.google.collections</groupId>
-			<artifactId>google-collections</artifactId>
-			<version>1.0</version>
-		</dependency>
 	</dependencies>
+
 	<parent>
 		<groupId>org.hawkinssoftware.rns</groupId>
 		<artifactId>rns</artifactId>
-		<version>0.1-alpha-1-2011.10.28-SNAPSHOT</version>
+		<version>0.1.1-SNAPSHOT</version>
 		<relativePath>../../project/rns</relativePath>
 	</parent>
+
 </project>

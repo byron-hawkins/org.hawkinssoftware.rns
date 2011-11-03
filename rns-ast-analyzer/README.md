@@ -6,11 +6,21 @@ on public Java types and methods.
 
 [parent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns/README.md
 
+#### Artifact
+
+An Eclipse plugin containing:
+
+1. **RNS Build Analyzer**, a project builder
+2. **RNS Project Nature**
+    * extends the core Java Nature
+3. Problem markers for calling out code that violates the 
+   developer's architectural constraints
+
 #### Installation
 
 1. Install the plugin into your Eclipse workspace.
 2. Activate the analyzer for any project by right-clicking it in
-   the Package Explorer and selecting `Toggle RNS Nature`.
+   the Package Explorer and selecting **Toggle RNS Nature**.
 
 #### Usage
 
@@ -23,8 +33,8 @@ The developer specifies publication constraints using annotations:
 3. <code>[@ExtensionConstraint]</code> restricts extension of 
    types (including implementation of interfaces)
 
-Workspace errors will appear for violations to your specified
-constraints within any project having the RNS Nature.
+Workspace errors will indicate any violations to RNS constraints 
+(within any project having the RNS Nature)
 
 [@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
 [@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
