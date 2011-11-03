@@ -7,6 +7,11 @@ aspect-oriented and message-oriented features.
 
 [parent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns/README.md
 
+#### Artifact
+
+A pure Java library, with premain-class 
+`org.hawkinssoftware.rns.agent.RNSInstrumentationAgent`
+
 #### Installation
 
 A VM argument specifies loading of the agent:
