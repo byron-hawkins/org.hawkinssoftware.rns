@@ -21,6 +21,12 @@ import org.hawkinssoftware.rns.core.role.DomainRole;
 /**
  * DOC comment task awaits.
  * 
+ * Warning: javac from the JDK will fail on this class because of bug 6857918:
+ * 
+ * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6857918
+ * 
+ * Please compile in Eclipse and then execute the maven goals.
+ * 
  * @author Byron Hawkins
  */
 @Target({ ElementType.TYPE })

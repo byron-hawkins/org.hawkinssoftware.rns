@@ -3,67 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>rns-core</artifactId>
-	<packaging>jar</packaging>
+	<packaging>eclipse-plugin</packaging>
 
 	<name>Role Normalization and Synthesis Core</name>
 	<description>Core definitions and implementation for the Role Normalization and Synthesis architecture.</description>
-	<url>http://www.hawkinssoftware.net</url>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
-	<licenses>
-		<license>
-			<name>Eclipse Public License - v 1.0</name>
-			<url>http://www.eclipse.org/org/documents/epl-v10.php</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-		</plugins>
-		<resources>
-			<resource>
-				<directory>${basedir}/src/main/resources</directory>
-			</resource>
-			<resource>
-				<directory>${basedir}/src/main/java</directory>
-			</resource>
-		</resources>
-
-		<!-- <extensions> <extension> <groupId>org.apache.maven.wagon</groupId> 
-			<artifactId>wagon-ftp</artifactId> <version>1.0-beta-7</version> </extension> 
-			</extensions> -->
-
-	</build>
-
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<!-- <distributionManagement> <repository> <id>hawkinssoftware-maven-ftp</id> 
-		<url>ftp://hawkinssoftware.net</url> </repository> </distributionManagement> -->
 
 	<parent>
 		<groupId>org.hawkinssoftware.rns</groupId>
 		<artifactId>rns</artifactId>
-		<version>0.1-alpha-1-2011.10.28-SNAPSHOT</version>
+		<version>0.1.1-SNAPSHOT</version>
 		<relativePath>../../project/rns</relativePath>
 	</parent>
-</project>
+ 
+</project>  
