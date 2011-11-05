@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>org.hawkinssoftware.rns</groupId>
 			<artifactId>rns-core</artifactId>
-			<version>0.1-alpha-1-2011.11.01-SNAPSHOT</version>
+			<version>0.1.1-SNAPSHOT</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
