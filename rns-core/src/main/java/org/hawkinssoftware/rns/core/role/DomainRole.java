@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * DOC comment task awaits.
+ * The DomainRole is the base class for the domain hierarchy 
  * 
  * @author Byron Hawkins
  */
