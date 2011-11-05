@@ -30,7 +30,7 @@ project by:
 For an example of RNS usage, see the [Azia User Interface Library]
 [azia].
 
-[azia]: ...
+[azia]: https://github.com/byron-hawkins/org.hawkinssoftware.azia/blob/master/azia/README.md
 
 #### Resources
 
