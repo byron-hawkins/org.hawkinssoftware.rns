@@ -27,7 +27,26 @@ import org.hawkinssoftware.rns.core.util.EnumeratedProperties.PropertyStatus;
 import org.hawkinssoftware.rns.core.util.RNSUtils;
 
 /**
- * DOC comment task awaits.
+ * The ExecutionPath is the foundation of the rudimentary Message Oriented Architecture features in RNS. In an
+ * RNS-enabled application, every method entry is pushed onto the <code>ExecutionPath</code>, and every method exit is
+ * popped off. Application code may globally query the stack using <code>getCurrentFrame()</code>,
+ * <code>getMostRecentCaller()</code> and <code>getPriorCaller()</code>.
+ * <p>
+ * To observe all activity on the stack for a particular thread, the application may install an
+ * <code>ExecutionContext</code> with <code>installExecutionContext()</code>, though usage is cautioned because methods
+ * called within the stack observer will also be pushed and popped from the ExecutionPath. The application may exclude a
+ * type or method from the ExecutionPath using the annotation <code>@ExecutionPath.NoFrame</code>. The application may
+ * observe the path for every threads using <code>ExecutionPath.Universe.addObserver()</code>.
+ * <p>
+ * In addition to the method entry and exit stack, the ExecutionPath also keeps a special stack for entry and exit of
+ * methods in classes having a <code>CommunicationRole</code>. This effectively reduces the execution path to a domain
+ * path. The application may query the CommunicationRole of the caller with <code>getCallerRole()</code>; if the
+ * immediate caller has no CommunicationRole, then the role of most recent caller having a role is returned (or null if
+ * there is none at all on the stack).
+ * <p>
+ * The application may set enumerated properties on the stack, and query the stack for current property state. This is
+ * particularly useful (in conjunction with the ExecutionContext or StackObserver) for monitoring and restricting
+ * execution activity while significant resources are held, such as file handles, sockets, semaphores, etc.
  * 
  * @author Byron Hawkins
  */
@@ -35,7 +54,7 @@ public class ExecutionPath
 {
 	// TODO: would be nice to apply this to every contained type, but it's hard to find them in BCEL
 	/**
-	 * DOC comment task awaits.
+	 * The receiving type or method is excluded from participation in any behavior of the <code>ExecutionPath</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -46,7 +65,8 @@ public class ExecutionPath
 	}
 
 	/**
-	 * An asynchronous update interface for receiving notifications about Stack information as the Stack is constructed.
+	 * Implementors are eligible to receive notification of every method entry and exit in the JVM, excluding those
+	 * types and methods annotated with <code>@ExecutionPath.NoFrame</code>.
 	 */
 	public interface StackObserver
 	{
@@ -55,7 +75,8 @@ public class ExecutionPath
 		void messageReturningFrom(TypeRole receiverRole, Object receiver);
 
 		/**
-		 * DOC comment task awaits.
+		 * Simple factory of <code>StackObserver</code> supplied by the <code>ExecutionPath</code>'s client, so that the
+		 * path can pair new observer with each new thread for the duration of the client's observation.
 		 * 
 		 * @param <ObserverType>
 		 *            the generic type
@@ -70,7 +91,7 @@ public class ExecutionPath
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Stack data container.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -86,7 +107,7 @@ public class ExecutionPath
 		{
 			return Universe.getInstance().createExecutionPath();
 		}
- 	};
+	};
 
 	private static final ThreadLocal<CurrentCaller> CURRENT_CALLER = new ThreadLocal<CurrentCaller>() {
 		@Override
@@ -97,7 +118,8 @@ public class ExecutionPath
 	};
 
 	/**
-	 * DOC comment task awaits.
+	 * Refers to the universe of <code>ExecutionPath</code> instances; i.e., all threads in the JVM. It is currently
+	 * only used to register observers.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -362,7 +384,7 @@ public class ExecutionPath
 			// path mechanics get no path features
 			return;
 		}
-		
+
 		ExecutionStackFrame frame = currentPath.executionStack.pop();
 		// ExecutionStackFrame frame = removeExecutionFrame();
 		if ((frame != null) && frame.hasMessageFrame())
@@ -459,7 +481,7 @@ public class ExecutionPath
 		return CURRENT_PATH.get().properties.getProperty(key);
 	}
 
-	//@SafeVarargs
+	// @SafeVarargs
 	public static <E extends Enum<E>> PropertyStatus getPropertyStatus(E... queryValue)
 	{
 		return CURRENT_PATH.get().properties.getPropertyStatus(queryValue);

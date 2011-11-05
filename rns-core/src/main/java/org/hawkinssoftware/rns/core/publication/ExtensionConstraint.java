@@ -19,13 +19,14 @@ import org.hawkinssoftware.rns.core.role.DomainRole;
 
 // TODO: this could perhaps apply to methods also--limiting override to a scope
 /**
- * DOC comment task awaits.
- * 
- * Warning: javac from the JDK will fail on this class because of bug 6857918:
- * 
- * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6857918
- * 
- * Please compile in Eclipse and then execute the maven goals.
+ * Assigns a constraint on the <code>extends</code> declaration, such that any type wishing to extend the annotated type
+ * must meet the criteria of the annotation entries. The constraint is enforced by the RNS AST analyzer, which will
+ * create a workspace error for every class attemting to extend the annotated type without meeting the qualifications of
+ * the constraint. No runtime restriction is enforced.
+ * <p>
+ * <b>Warning:</b> <code>javac</code> from the JDK will fail on this class because of <a
+ * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6857918">bug 6857918</a>. This causes maven compile goals to
+ * fail. Please compile in Eclipse and then execute the subsequent maven goals.
  * 
  * @author Byron Hawkins
  */

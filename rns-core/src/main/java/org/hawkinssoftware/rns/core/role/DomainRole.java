@@ -23,15 +23,24 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The DomainRole is the base class for the domain hierarchy 
+ * The DomainRole is the base class for the domain hierarchy, which the developer constructs and uses to delineate
+ * groups of types (classes, interfaces and enums). Every DomainRole must have a static singleton instance annotated
+ * with @DomainRole.Instance; the RNS build analyzer will call out any DomainRole lacking this singleton field.
+ * <p>
+ * <b>Containment:</b> DomainRole A is said to contain DomainRole B if the class A is a superclass of B.
+ * <p>
+ * <b>Inclusion:</b> A DomainRole can itself be a member of another DomainRole, and in that sense it is included in the
+ * other DomainRole. This relation is not presently used and seems risky because it allows for multiple inheritance in
+ * the domain graph. The containment relation has much lighter implications and seems sufficient for all ordinary
+ * purposes.
  * 
  * @author Byron Hawkins
  */
 public class DomainRole extends CommunicationRole
 {
-	
 	/**
-	 * DOC comment task awaits.
+	 * Place this annotation on any type (class, interface or enum) to identify it as a member of the DomainRoles
+	 * indicated in <code>membership()</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -43,7 +52,7 @@ public class DomainRole extends CommunicationRole
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Required annotation on the singleton instance of a DomainRole class declaration.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -71,9 +80,11 @@ public class DomainRole extends CommunicationRole
 		}
 		return false;
 	}
-	
+
 	/**
-	 * DOC comment task awaits.
+	 * Defines a set of domains and package patterns which must share no members. For example, an OrthogonalSet
+	 * <code>{"com.foo.package.*", KeyboardInputDomain.class}</code> indicates that no type in package
+	 * <code>com.foo.package</code> may be a member of the <code>KeyboardInputDomain</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -87,7 +98,8 @@ public class DomainRole extends CommunicationRole
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Finds and returns the static singleton instance of a DomainRole, given the
+	 * <code>Class<? extends DomainRole></code>.
 	 * 
 	 * @author Byron Hawkins
 	 */

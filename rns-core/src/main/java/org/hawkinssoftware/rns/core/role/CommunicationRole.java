@@ -20,7 +20,9 @@ import org.hawkinssoftware.rns.core.util.EnumeratedProperties.PropertyStatus;
 import org.hawkinssoftware.rns.core.util.RNSUtils;
 
 /**
- * DOC comment task awaits.
+ * Identifies the DomainRole membership of any type. A DomainRole serves as its own CommunicationRole in that it is a
+ * subclass of CommunicationRole. For any other type, an instance of <code>TypeRole</code> carries its DomainRole
+ * membership.
  * 
  * @author Byron Hawkins
  */
@@ -43,7 +45,7 @@ public abstract class CommunicationRole
 	{
 		return membership;
 	}
-	
+
 	public boolean hasRole(DomainRole role)
 	{
 		for (DomainRole category : membership)

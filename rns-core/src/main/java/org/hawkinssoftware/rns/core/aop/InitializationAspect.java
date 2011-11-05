@@ -24,7 +24,10 @@ import org.hawkinssoftware.rns.core.role.CoreDomains.InitializationDomain;
 import org.hawkinssoftware.rns.core.util.DefinesIdentity;
 
 /**
- * DOC comment task awaits.
+ * The receiving type is instrumented with a post-constructor call to the <code>Agent</code> specified in annotation
+ * entry <code>agent()</code>. If the type is an interface, all implementors will be instrumented with the
+ * initialization call to the agent. The instrumented agent method call is placed at every exit point in the
+ * constructor, so it will be invoked even if the constructor throws an exception.
  * 
  * @author Byron Hawkins
  */
@@ -35,7 +38,9 @@ public @interface InitializationAspect
 	Class<? extends Agent<?>> agent();
 
 	/**
-	 * DOC comment task awaits.
+	 * Implementors are eligible to receive initialization invocations at the constructor exit of every class annotated
+	 * with <code>@InitializationAspect</code>. The annotated type will specify an <code>Agent</code> implementor in its
+	 * annotation entry <code>agent()</code>.
 	 * 
 	 * @param <Type>
 	 *            the generic type
@@ -51,7 +56,8 @@ public @interface InitializationAspect
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * The constructor-exit instrumentation of <code>InitializationAgent</code> is always directed here for relay to the
+	 * <code>Agent</code> specified in its annotation entry <code>agent()</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */

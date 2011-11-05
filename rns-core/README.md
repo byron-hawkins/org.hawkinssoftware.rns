@@ -27,7 +27,7 @@ the [bytecode instrumentation agent][rns-agent].
 1. To define domain relationships:
     * create a file `<project-name>.domains.xml` in 
       `src/main/resources/rns`
-    * specify the domain-scope [DTD]
+    * specify the domain-scope [DTD] in the XML header
     * Enforce domain orthogonality with `<orthogonal-set>` 
     * Enforce domain containment with `<domain-containment>`
 1. Domain features are more fully explained in the 

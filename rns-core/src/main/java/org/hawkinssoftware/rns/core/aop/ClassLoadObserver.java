@@ -18,14 +18,15 @@ import java.util.Set;
 import org.hawkinssoftware.rns.core.role.DomainRole;
 
 /**
- * An asynchronous update interface for receiving notifications about ClassLoad information as the ClassLoad is
- * constructed.
+ * Facilitates observation of every class loaded into the JVM.
+ * <p>
+ * <b>Usage:</b>An application is expected to implement the enclosed <code>FilteredObserver</code> interface and
+ * register with <code>observe()</code>.
  */
 public class ClassLoadObserver
 {
-	
 	/**
-	 * DOC comment task awaits.
+	 * Domain role for restricting access to public content of the class load observation system.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -36,8 +37,21 @@ public class ClassLoadObserver
 	}
 
 	/**
-	 * An asynchronous update interface for receiving notifications about Filtered information as the Filtered is
-	 * constructed.
+	 * // * The implementor is eligible to receive notification of classes loaded into the JVM; notification is
+	 * pre-filtered according to the implementors <code>getObservedTypenames()</code> and
+	 * <code>getMethodFilters()</code>. It would be more convenient to simply allow observation of all types, but there
+	 * are complications:
+	 * 
+	 * <ol>
+	 * <li>The observation is implemented by the bytecode instrumentation agent, and for that reason, the observed class
+	 * has actually not been initialized yet. Any attempt to access it in terms of a <code>java.lang.Class</code>, or to
+	 * invoke <code>Class.forName()</code> will cause JVM implosion.</li>
+	 * <li>It is substantially expensive to construct the method and type hierarchy information, because it is scarfed
+	 * out of the .class files on disk.</li>
+	 * </ol>
+	 * 
+	 * For these reasons, it is advised that the filter be as strict as possible, and that no
+	 * <code>java.lang.Class</code> functionality be executed on the observed type.
 	 */
 	public interface FilteredObserver
 	{
@@ -49,7 +63,7 @@ public class ClassLoadObserver
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Method filter member of <code>FilteredObserver</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -63,7 +77,10 @@ public class ClassLoadObserver
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Metadata about a class that is in the process of being loaded. Instances are passed to
+	 * <code>FilteredObserver</code> for which the filter criteria are met. Be aware that the ObservedType is not yet a
+	 * <code>java.lang.Class</code> and cannot be accessed as such in any way at all (attempting to do so will cause JVM
+	 * implosion).
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -85,7 +102,7 @@ public class ClassLoadObserver
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Method metadata member of <code>ObservedType</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -102,7 +119,7 @@ public class ClassLoadObserver
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Type hierarchy member of <code>ObservedType</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */

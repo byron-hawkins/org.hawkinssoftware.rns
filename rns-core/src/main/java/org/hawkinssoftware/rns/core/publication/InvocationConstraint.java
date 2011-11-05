@@ -18,13 +18,13 @@ import java.lang.annotation.Target;
 import org.hawkinssoftware.rns.core.role.DomainRole;
 
 /**
- * DOC comment task awaits.
- * 
- * Warning: javac from the JDK will fail on this class because of bug 6857918:
- * 
- * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6857918
- * 
- * Please compile in Eclipse and then execute the maven goals.
+ * Assigns invocations constraints to a method (or all methods of a type), such that only those types identified in the
+ * annotation entries may invoke it. The constraint is enforced by the RNS AST analyzer, which will create a workspace
+ * error for every invocation from a type that does not meet this constraint. No runtime restriction is enforced.
+ * <p>
+ * <b>Warning:</b> <code>javac</code> from the JDK will fail on this class because of <a
+ * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6857918">bug 6857918</a>. This causes maven compile goals to
+ * fail. Please compile in Eclipse and then execute the subsequent maven goals.
  * 
  * @author Byron Hawkins
  */
@@ -33,7 +33,7 @@ import org.hawkinssoftware.rns.core.role.DomainRole;
 public @interface InvocationConstraint
 {
 	// WIP: need an @InstantiationConstraint for interfaces
-	
+
 	/**
 	 * The set of classes whose members are allowed to hold references to the annotated type.
 	 */
@@ -43,7 +43,7 @@ public @interface InvocationConstraint
 	 * The set of class hierarchies whose members are allowed to hold references to the annotated type.
 	 */
 	Class<?>[] extendedTypes() default {};
-	
+
 	/**
 	 * The set of packages whose members are allowed to hold references to the annotated type.
 	 */

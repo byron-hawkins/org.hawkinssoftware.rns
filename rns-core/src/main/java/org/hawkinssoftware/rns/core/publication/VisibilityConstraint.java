@@ -19,13 +19,15 @@ import org.hawkinssoftware.rns.core.role.DomainRole;
 
 // visibility never applies to methods or constructors, because they have no role other than to be invoked.
 /**
- * DOC comment task awaits.
- * 
- * Warning: javac from the JDK will fail on this class because of bug 6857918:
- * 
- * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6857918
- * 
- * Please compile in Eclipse and then execute the maven goals.
+ * Assigns a visibility constraint on the annotated type, such only those types which meet the criteria of the
+ * annotation entries may make reference to it. The constraint is enforced by the RNS AST analyzer, which will create a
+ * workspace error for every class referring to the annotated type without meeting the qualifications of the constraint.
+ * All kinds of references are evaluated, including non-executional references such as type literals. No runtime
+ * restriction is enforced.
+ * <p>
+ * <b>Warning:</b> <code>javac</code> from the JDK will fail on this class because of <a
+ * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6857918">bug 6857918</a>. This causes maven compile goals to
+ * fail. Please compile in Eclipse and then execute the subsequent maven goals.
  * 
  * @author Byron Hawkins
  */
@@ -56,14 +58,14 @@ public @interface VisibilityConstraint
 	boolean inherit() default false;
 
 	boolean voidInheritance() default false;
-	
+
 	/**
 	 * Recognized packages() entry indicating the package of the class in which the annotation appears.
 	 */
 	public static final String MY_PACKAGE = "mine";
 
 	public static final Class<? extends DomainRole> MY_DOMAINS = MyDomains.class;
-	
+
 	/**
 	 * DOC comment task awaits.
 	 * 

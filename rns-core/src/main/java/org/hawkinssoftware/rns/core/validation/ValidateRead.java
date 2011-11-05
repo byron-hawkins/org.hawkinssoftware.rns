@@ -16,7 +16,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * DOC comment task awaits.
+ * All read references to the receiving field are instrumented with a preceding call to the enclosed
+ * <code>ValidationAgent</code>. The intended application usage is:
+ * 
+ * <pre>
+ * 1. Place annotations on all fields requiring some kind of validation for read access.
+ * 2. Assign a <code>Validator</code> to the enclosed <code>ValidationAgent</code>.
+ * </pre>
+ * 
+ * The <code>Validator</code> will then have an opportunity to examine every read access to the annotated fields and
+ * take action if the access is not allowable. Ideally, this functionality would be implemented in an AST analyzer, but
+ * this is all I know how to do at the moment. Annotate a type to have all its fields read-validated; exclude any
+ * individual field using <code>@ValidateRead.Exempt</code>.
  * 
  * @author Byron Hawkins
  */
@@ -32,7 +43,7 @@ public @interface ValidateRead
 	String method() default "validateRead";
 
 	/**
-	 * DOC comment task awaits.
+	 * Exempts an individual field from <code>@ValidateRead</code> placed on an entire type.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -43,7 +54,7 @@ public @interface ValidateRead
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * The implementor is eligible for registration with the <code>ValidationAgent</code>.
 	 * 
 	 * @author Byron Hawkins
 	 */
@@ -53,7 +64,9 @@ public @interface ValidateRead
 	}
 
 	/**
-	 * DOC comment task awaits.
+	 * Relay point for validation invocations instrumented according to <code>@ValidateRead</code>. The application is
+	 * expected to assign one <code>Validator</code> using <code>setValidator()</code>, which will receive the relay of
+	 * all instrumented validation calls.
 	 * 
 	 * @author Byron Hawkins
 	 */
