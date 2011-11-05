@@ -84,13 +84,13 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 
 		try
 		{
+			Log.addOutput(System.out);
+			
 			javaProject = JavaCore.create(getProject());
 			parser = new JavaSourceParser(javaProject);
 			engine = new RNSAnalysisEngine(javaProject, parser, this);
 			parser.addListener(TypeHierarchyCache.getInstance().getSourceParserListener());
-
-			Log.addOutput(System.out);
-
+			
 			ALL_BUILDERS.put(getProject(), this);
 
 			try
