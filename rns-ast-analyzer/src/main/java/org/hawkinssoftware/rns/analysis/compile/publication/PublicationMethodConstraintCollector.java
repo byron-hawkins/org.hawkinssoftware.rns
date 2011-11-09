@@ -170,11 +170,11 @@ public class PublicationMethodConstraintCollector
 			return ruleProvider.getDirectConstraints(hierarchyOfReferredType.getType(), null);
 		}
 
-		IMethod override = getMethodDeclarationInType(referredMethod, hierarchyOfReferredType.getType(), hierarchyOfReferredType);
-		AggregatePublicationConstraint directConstraints = ruleProvider.getDirectConstraints(hierarchyOfReferredType.getType(), override);
+		IMethod immediateDeclaration = getMethodDeclarationInType(referredMethod, hierarchyOfReferredType.getType(), hierarchyOfReferredType);
+		AggregatePublicationConstraint directConstraints = ruleProvider.getDirectConstraints(hierarchyOfReferredType.getType(), immediateDeclaration);
 		if ((directConstraints != null) && !directConstraints.traverse())
 		{
-			if (directConstraints.isEmpty())
+			if (directConstraints.isEmpty() && directConstraints.voidInheritance)
 			{
 				return null;
 			}
@@ -198,7 +198,7 @@ public class PublicationMethodConstraintCollector
 		}
 		for (AggregatePublicationConstraint constraints : pass.applicableConstraints)
 		{
-			directConstraints.inheritFrom(constraints);
+			directConstraints = directConstraints.inheritFrom(constraints);
 		}
 
 		// TODO: the error will not know which @PublicationConstraint is causing a violation (if any)
@@ -235,7 +235,7 @@ public class PublicationMethodConstraintCollector
 				fromBelow.applicableConstraints.add(constraintsForThisMethod);
 				for (AggregatePublicationConstraint applicableConstraint : goingAbove.applicableConstraints)
 				{
-					constraintsForThisMethod.inheritFrom(applicableConstraint);
+					constraintsForThisMethod = constraintsForThisMethod.inheritFrom(applicableConstraint);
 				}
 			}
 			else

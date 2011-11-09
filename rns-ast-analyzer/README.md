@@ -46,6 +46,8 @@ Workspace errors will indicate any violations to RNS constraints
    heavily integrated class hierarchies. Many improvements can be
    made, but this is only a prototype and does not warrant the 
    effort.
-2. The plugin currently fails to identify all violations during
-   incremental builds. This is a bug and will be fixed.
+2. The plugin currently is not able to identify every violation 
+   during incremental builds. It overlooks a few, and will find 
+   them when a directly related file is touched. This is a bug and 
+   will be fixed.
 

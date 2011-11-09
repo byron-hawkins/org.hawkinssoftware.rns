@@ -129,7 +129,7 @@ public class PublicationTypeConstraintCollector
 		}
 		for (AggregatePublicationConstraint constraints : pass.applicableConstraints)
 		{
-			directConstraints.inheritFrom(constraints);
+			directConstraints = directConstraints.inheritFrom(constraints);
 		}
 
 		// TODO: the error will not know which @PublicationConstraint is causing a violation (if any)
@@ -154,7 +154,7 @@ public class PublicationTypeConstraintCollector
 				fromBelow.applicableConstraints.add(constraintsForThisType);
 				for (AggregatePublicationConstraint applicableConstraint : goingAbove.applicableConstraints)
 				{
-					constraintsForThisType.inheritFrom(applicableConstraint);
+					constraintsForThisType = constraintsForThisType.inheritFrom(applicableConstraint);
 				}
 			}
 			else
