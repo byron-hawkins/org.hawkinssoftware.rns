@@ -37,7 +37,7 @@ public class ClassLoadObserver
 	}
 
 	/**
-	 * // * The implementor is eligible to receive notification of classes loaded into the JVM; notification is
+	 * The implementor is eligible to receive notification of classes loaded into the JVM; notification is
 	 * pre-filtered according to the implementors <code>getObservedTypenames()</code> and
 	 * <code>getMethodFilters()</code>. It would be more convenient to simply allow observation of all types, but there
 	 * are complications:
