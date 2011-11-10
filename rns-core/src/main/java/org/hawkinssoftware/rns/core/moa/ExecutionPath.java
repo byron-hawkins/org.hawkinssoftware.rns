@@ -33,10 +33,11 @@ import org.hawkinssoftware.rns.core.util.RNSUtils;
  * <code>getMostRecentCaller()</code> and <code>getPriorCaller()</code>.
  * <p>
  * To observe all activity on the stack for a particular thread, the application may install an
- * <code>ExecutionContext</code> with <code>installExecutionContext()</code>, though usage is cautioned because methods
- * called within the stack observer will also be pushed and popped from the ExecutionPath. The application may exclude a
- * type or method from the ExecutionPath using the annotation <code>@ExecutionPath.NoFrame</code>. The application may
- * observe the path for every threads using <code>ExecutionPath.Universe.addObserver()</code>.
+ * <code>ExecutionContext</code> with <code>installExecutionContext()</code>, though it should be used with special
+ * consideration that methods called within the stack observer will also be pushed and popped from the ExecutionPath
+ * (e.g., there is a high risk of infinite looping). The application may exclude a type or method from the ExecutionPath
+ * using the annotation <code>@ExecutionPath.NoFrame</code>. The application may observe the path for every thread using
+ * <code>ExecutionPath.Universe.addObserver()</code>.
  * <p>
  * In addition to the method entry and exit stack, the ExecutionPath also keeps a special stack for entry and exit of
  * methods in classes having a <code>CommunicationRole</code>. This effectively reduces the execution path to a domain
@@ -46,7 +47,8 @@ import org.hawkinssoftware.rns.core.util.RNSUtils;
  * <p>
  * The application may set enumerated properties on the stack, and query the stack for current property state. This is
  * particularly useful (in conjunction with the ExecutionContext or StackObserver) for monitoring and restricting
- * execution activity while significant resources are held, such as file handles, sockets, semaphores, etc.
+ * execution activity on a thread while that thread holds significant resources, such as file handles, sockets,
+ * semaphores, etc.
  * 
  * @author Byron Hawkins
  */

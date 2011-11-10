@@ -26,8 +26,10 @@ import java.lang.annotation.Target;
  * 
  * The <code>Validator</code> will then have an opportunity to examine every read access to the annotated fields and
  * take action if the access is not allowable. Ideally, this functionality would be implemented in an AST analyzer, but
- * this is all I know how to do at the moment. Annotate a type to have all its fields read-validated; exclude any
- * individual field using <code>@ValidateRead.Exempt</code>.
+ * this is all I know how to do at the moment.
+ * <p>
+ * Annotate a type to have all its fields read-validated; exclude any individual field using
+ * <code>@ValidateRead.Exempt</code>.
  * 
  * @author Byron Hawkins
  */

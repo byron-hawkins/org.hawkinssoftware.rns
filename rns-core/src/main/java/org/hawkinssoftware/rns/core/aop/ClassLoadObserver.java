@@ -21,7 +21,7 @@ import org.hawkinssoftware.rns.core.role.DomainRole;
  * Facilitates observation of every class loaded into the JVM.
  * <p>
  * <b>Usage:</b>An application is expected to implement the enclosed <code>FilteredObserver</code> interface and
- * register with <code>observe()</code>.
+ * register it with <code>observe()</code>.
  */
 public class ClassLoadObserver
 {
@@ -37,10 +37,10 @@ public class ClassLoadObserver
 	}
 
 	/**
-	 * The implementor is eligible to receive notification of classes loaded into the JVM; notification is
-	 * pre-filtered according to the implementors <code>getObservedTypenames()</code> and
-	 * <code>getMethodFilters()</code>. It would be more convenient to simply allow observation of all types, but there
-	 * are complications:
+	 * The implementor is eligible to receive notification of classes loaded into the JVM; notification is pre-filtered
+	 * according to the implementors <code>getObservedTypenames()</code> and <code>getMethodFilters()</code>. It would
+	 * be more convenient to simply allow observation of all types in <code>java.lang.Class</code> form, but there are
+	 * complications:
 	 * 
 	 * <ol>
 	 * <li>The observation is implemented by the bytecode instrumentation agent, and for that reason, the observed class
@@ -78,9 +78,9 @@ public class ClassLoadObserver
 
 	/**
 	 * Metadata about a class that is in the process of being loaded. Instances are passed to
-	 * <code>FilteredObserver</code> for which the filter criteria are met. Be aware that the ObservedType is not yet a
-	 * <code>java.lang.Class</code> and cannot be accessed as such in any way at all (attempting to do so will cause JVM
-	 * implosion).
+	 * <code>FilteredObserver</code> for which the filter criteria are met. Be aware that the ObservedType is not yet
+	 * known to the JVM as a <code>java.lang.Class</code> and cannot be accessed as such in any way at all (attempting
+	 * <code>Class.forName(observedType.observedTypes.get(0));</code>, e.g., will cause JVM implosion).
 	 * 
 	 * @author Byron Hawkins
 	 */
