@@ -21,6 +21,7 @@ import org.hawkinssoftware.rns.agent.message.MessageStackClassTransformer;
 import org.hawkinssoftware.rns.agent.validation.ValidationClassTransformer;
 import org.hawkinssoftware.rns.core.aop.ClassLoadObserver;
 import org.hawkinssoftware.rns.core.aop.ClassLoadObserver.FilteredObserver;
+import org.hawkinssoftware.rns.core.aop.InstrumentationAgentConfiguration;
 import org.hawkinssoftware.rns.test.agent.TestClassTransformer;
 
 /**
@@ -39,7 +40,8 @@ public class RNSInstrumentationAgent implements ClassFileTransformer
 		 * Not messing with java.* or sun instrumented classes
 		 */
 		// TODO: hack skipping InstrumentedRouter in RNS agent
-		if (classname.startsWith("java") || classname.startsWith("org/xml/sax") || classname.contains("InstrumentedRouter"))
+		if (classname.startsWith("java") || classname.startsWith("org/xml/sax") || classname.contains("InstrumentedRouter")
+				|| !InstrumentationAgentConfiguration.isInstrumented(classname))
 		{
 			return null;
 		}
