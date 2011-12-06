@@ -11,10 +11,12 @@
 package org.hawkinssoftware.rns.core.collection;
 
 /**
- * DOC comment task awaits.
+ * An interface facilitating generic reference to a collection having an integrated
+ * <code>CollectionAccessValidator</code>. The collection may be a <code>java.util.Collection</code> or a
+ * <code>java.util.Map</code> or any other kind of collection.
  * 
  * @param <CollectionType>
- *            the generic type
+ *            the specific kind of collection being wrapped
  * @author Byron Hawkins
  */
 public interface AccessValidatedCollection<CollectionType>

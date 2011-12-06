@@ -15,10 +15,11 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 /**
- * DOC comment task awaits.
+ * A simple wrapper for a <code>Lock</code> which optionally notifies a <code>LockHook</code> before and after every
+ * lock operation.
  * 
  * @param <LockType>
- *            the generic type
+ *            the implementation of <code>Lock</code> contained in this wrapper
  * @author Byron Hawkins
  */
 public class HookedLock<LockType extends Lock> implements Lock

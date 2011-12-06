@@ -11,7 +11,8 @@
 package org.hawkinssoftware.rns.core.util;
 
 /**
- * DOC comment task awaits.
+ * The hierarhcy of the annotated type is recognized by the RNS AST Analyzer to be universally orthogonal to the
+ * hierarchy of each other type so annotated. Usually used for fundamental interfaces.
  * 
  * @author Byron Hawkins
  */

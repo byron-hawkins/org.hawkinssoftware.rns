@@ -23,7 +23,10 @@ import java.util.List;
 import org.hawkinssoftware.rns.core.publication.InvocationConstraint;
 
 /**
- * DOC comment task awaits.
+ * The annotated class will be instrumented with a pointcut before and after every <code>synchronized</code> statement
+ * and <code>synchronized</code> method entry/exit. The pointcut will invoke the type of <code>SemaphoreHook</code>
+ * specified in the annotation entry <code>hook()</code>, and will find its singleton instance by the entry
+ * <code>instance()</code>, which may be the name of either a static method or a static field.
  * 
  * @author Byron Hawkins
  */
@@ -31,21 +34,28 @@ import org.hawkinssoftware.rns.core.publication.InvocationConstraint;
 @Target(ElementType.TYPE)
 public @interface HookSemaphores
 {
+	/**
+	 * Identifies the type of <code>SemaphoreHook</code> to receive the pointcut.
+	 */
 	Class<? extends SemaphoreHook> hook();
 
+	/**
+	 * Identifies the static field or method of the <code>SemaphoreHook</code> to invoke in the pointcut.
+	 */
 	String instance() default "INSTANCE";
 
 	/**
-	 * DOC comment task awaits.
+	 * The instrumentation of the enclosing <code>HookSempahores</code> annotation actually goes to this
+	 * <code>Relay</code>, which finds the <code>SemaphoreHook</code> instance to invoke. The <code>Relay</code> also
+	 * maintains a stack to simplify entry and exit of <code>synchronized</code> methods.
 	 * 
 	 * @author Byron Hawkins
 	 */
 	@InvocationConstraint(packages = "org.hawkinssoftware.rns.agent.*")
 	public static class Relay
 	{
-		
 		/**
-		 * DOC comment task awaits.
+		 * Maintains a map of method entry frames per thread, and also caches the <code>SemaphoreHook</code> instance.
 		 * 
 		 * @author Byron Hawkins
 		 */
@@ -78,7 +88,7 @@ public @interface HookSemaphores
 		}
 
 		/**
-		 * DOC comment task awaits.
+		 * Method entry frame used in the enclosing <code>Relay</code>'s <code>ThreadContext.methodEntryStack</code>.
 		 * 
 		 * @author Byron Hawkins
 		 */
