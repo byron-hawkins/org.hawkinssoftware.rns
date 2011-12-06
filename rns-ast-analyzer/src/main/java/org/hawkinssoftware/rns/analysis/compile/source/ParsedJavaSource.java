@@ -71,6 +71,11 @@ public class ParsedJavaSource
 	{
 		return source.exists();
 	}
+	
+	public ICompilationUnit getSource()
+	{
+		return source;
+	}
 
 	public void createReferredTypeMarker(String markerType, String message, int severity, ASTNode markerNode, String relatedTypename, String memberTypename)
 			throws CoreException

@@ -73,14 +73,14 @@ public class DomainRoleChecker extends HierarchyAnnotationChecker
 								}
 								else
 								{
-									message = "Field '" + field.getElementName() + "' is annotated @" + RNSUtils.getPlainName(DomainRole.Instance.class)
-											+ " and therefore must be of type " + hierarchy.getType().getFullyQualifiedName() + ".";
+									message = String.format("Malformed @%s: Field '%s' must be of type %s.", RNSUtils.getPlainName(DomainRole.Instance.class),
+											field.getElementName(), hierarchy.getType().getFullyQualifiedName());
 								}
 							}
 							else
 							{
-								message = "Field '" + field.getElementName() + "' is annotated @" + RNSUtils.getPlainName(DomainRole.Instance.class)
-										+ ", but the containing type " + hierarchy.getType().getFullyQualifiedName() + " is not a DomainRole.";
+								message = String.format("Malformed @%s: Field '%s' must be a member of a %s.",
+										RNSUtils.getPlainName(DomainRole.Instance.class), field.getElementName(), hierarchy.getType().getFullyQualifiedName());
 							}
 							SourceDeclarationInstruction<FieldDeclaration, IVariableBinding> fieldDeclaration = source.getFieldDeclaration(field);
 							createError(message, fieldDeclaration.markerReferenceNode);
@@ -95,14 +95,14 @@ public class DomainRoleChecker extends HierarchyAnnotationChecker
 			{
 				if (instanceCount == 0)
 				{
-					String message = "Domain role " + hierarchy.getType().getFullyQualifiedName()
-							+ " must contain one static field of its own type annotated with @" + RNSUtils.getPlainName(DomainRole.Instance.class) + ".";
+					String message = String.format("Malformed %s: class %s must contain one static field of its own type annotated with @%s.",
+							DomainRole.class.getSimpleName(), hierarchy.getType().getFullyQualifiedName(), RNSUtils.getPlainName(DomainRole.Instance.class));
 					createError(message, typeDeclaration.markerReferenceNode);
 				}
 				else if (instanceCount > 1)
 				{
-					String message = "Domain role " + hierarchy.getType().getFullyQualifiedName() + " has multiple fields annotated @"
-							+ RNSUtils.getPlainName(DomainRole.Instance.class) + ".";
+					String message = String.format("Malformed %s: class %s has multiple fields annotated @%s.", DomainRole.class.getSimpleName(), hierarchy
+							.getType().getFullyQualifiedName(), RNSUtils.getPlainName(DomainRole.Instance.class));
 					createError(message, typeDeclaration.markerReferenceNode);
 				}
 			}

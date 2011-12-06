@@ -14,6 +14,7 @@ import java.util.Collection;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.ITypeHierarchy;
@@ -93,6 +94,13 @@ public class PublicationConstraintChecker
 				continue;
 			}
 
+			ICompilationUnit referredTypeSource = hierarchyOfReferredType.getType().getCompilationUnit();
+			ICompilationUnit referenceSource = reference.getCompilationUnit();
+			if ((referredTypeSource != null) && (referenceSource != null) && referredTypeSource.equals(referenceSource))
+			{
+				continue;
+			}
+
 			switch (reference.getKind())
 			{
 				case EXTENSION:
@@ -100,9 +108,8 @@ public class PublicationConstraintChecker
 					{
 						if (!referenceChecker.isValid(reference, extensionConstraint))
 						{
-							String message = "Extension of type " + reference.displayName + "is illegal because the "
-									+ ExtensionConstraint.class.getSimpleName() + " is not met by class "
-									+ RNSUtils.getPlainName(reference.getContainingTypename());
+							String message = String.format("Illegal extension: supertype %s has @%ss which are not met by class extending %s.",
+									reference.displayName, ExtensionConstraint.class.getSimpleName(), RNSUtils.getPlainName(reference.getContainingTypename()));
 							reference.createMarker(MARKER_ID, message, IMarker.SEVERITY_ERROR);
 						}
 					}
@@ -112,9 +119,9 @@ public class PublicationConstraintChecker
 					{
 						if (!referenceChecker.isValid(reference, visibilityConstraint))
 						{
-							String message = "Reference to type " + reference.displayName + "is illegal because the "
-									+ VisibilityConstraint.class.getSimpleName() + " is not met by class "
-									+ RNSUtils.getPlainName(reference.getContainingTypename());
+							String message = String
+									.format("Illegal reference: type %s has @%ss which are not met by referring class %s.", reference.displayName,
+											VisibilityConstraint.class.getSimpleName(), RNSUtils.getPlainName(reference.getContainingTypename()));
 							reference.createMarker(MARKER_ID, message, IMarker.SEVERITY_ERROR);
 						}
 					}
@@ -139,9 +146,8 @@ public class PublicationConstraintChecker
 					{
 						if (!referenceChecker.isValid(override, overrideConstraint))
 						{
-							String message = "Override of method " + override.displayName + "is illegal because the "
-									+ ExtensionConstraint.class.getSimpleName() + " is not met by class "
-									+ RNSUtils.getPlainName(reference.getContainingTypename());
+							String message = String.format("Illegal override: super method %s() has @%ss which are not met by overriding class %s.",
+									override.displayName, ExtensionConstraint.class.getSimpleName(), RNSUtils.getPlainName(reference.getContainingTypename()));
 							reference.createMarker(MARKER_ID, message, IMarker.SEVERITY_ERROR);
 						}
 					}
@@ -174,8 +180,8 @@ public class PublicationConstraintChecker
 			AggregatePublicationConstraint proxyConstraint = getProxyConstraint(methodReference);
 			if (!referenceChecker.isValid(methodReference, publicationConstraint, proxyConstraint))
 			{
-				String message = "Invocation of method " + methodReference.displayName + " is illegal because the "
-						+ InvocationConstraint.class.getSimpleName() + " is not met by class " + RNSUtils.getPlainName(methodReference.getContainingTypename());
+				String message = String.format("Illegal invocation: method %s() has @%ss which are not met by class %s.", methodReference.displayName,
+						InvocationConstraint.class.getSimpleName(), RNSUtils.getPlainName(methodReference.getContainingTypename()));
 				methodReference.createMarker(MARKER_ID, message, IMarker.SEVERITY_ERROR);
 			}
 		}
@@ -200,7 +206,7 @@ public class PublicationConstraintChecker
 		{
 			return null;
 		}
- 
+
 		IMethodBinding containingMethodBinding = ((MethodDeclaration) parent).resolveBinding();
 		if (containingMethodBinding == null)
 		{
@@ -213,7 +219,7 @@ public class PublicationConstraintChecker
 			Log.out(Tag.WARNING, "Warning: method %s has no java element. Skipping proxy evaluation.", ((MethodInvocation) parent).getName());
 			return null;
 		}
- 
+
 		return PROXY_COLLECTOR.collectMethodConstraints(hierarchy, containingMethod);
 	}
 }

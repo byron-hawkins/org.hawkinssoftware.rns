@@ -10,9 +10,11 @@
  */
 package org.hawkinssoftware.rns.analysis.compile.source;
 
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.AbstractTypeDeclaration;
+import org.eclipse.jdt.core.dom.AnonymousClassDeclaration;
 import org.eclipse.jdt.core.dom.IBinding;
 import org.hawkinssoftware.rns.core.log.Log;
 import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
@@ -30,7 +32,6 @@ import org.hawkinssoftware.rns.core.util.RNSLogging.Tag;
  */
 public abstract class SourceInstruction<Kind extends SourceInstruction.InstructionKind, InstructionType extends ASTNode, InstructionBindingType extends IBinding>
 {
-	
 	/**
 	 * DOC comment task awaits.
 	 * 
@@ -48,6 +49,7 @@ public abstract class SourceInstruction<Kind extends SourceInstruction.Instructi
 	public final String displayName;
 
 	protected ParsedJavaSource containingSource;
+	private IType containingType = null;
 
 	SourceInstruction(Kind kind, InstructionType instructionNode, ASTNode markerReferenceNode, InstructionBindingType instructionNodeBinding, String displayName)
 	{
@@ -63,7 +65,7 @@ public abstract class SourceInstruction<Kind extends SourceInstruction.Instructi
 		this.instructionNodeBinding = instructionNodeBinding;
 		this.displayName = displayName;
 	}
-	
+
 	abstract String getQualifiedName();
 
 	void setContainingSource(ParsedJavaSource containingSource)
@@ -73,22 +75,44 @@ public abstract class SourceInstruction<Kind extends SourceInstruction.Instructi
 
 	private IType getContainingType()
 	{
-		ASTNode traversal = instructionNode;
-		while ((traversal != null) && !(traversal instanceof AbstractTypeDeclaration))
+		if (containingType == null)
 		{
-			traversal = traversal.getParent();
+			ASTNode traversal = instructionNode;
+			while (traversal != null)
+			{
+				if ((traversal instanceof AbstractTypeDeclaration) || (traversal instanceof AnonymousClassDeclaration))
+				{
+					if (traversal instanceof AbstractTypeDeclaration)
+					{
+						containingType = (IType) ((AbstractTypeDeclaration) traversal).resolveBinding().getJavaElement();
+					}
+					if (traversal instanceof AnonymousClassDeclaration)
+					{
+						containingType = (IType) ((AnonymousClassDeclaration) traversal).resolveBinding().getJavaElement();
+					}
+
+					if (containingType == null)
+					{
+						Log.out(Tag.WARNING, "Failed to find the type containing instruction %s", instructionNode);
+					}
+					break;
+				}
+
+				traversal = traversal.getParent();
+			}
+
+			if (containingType == null)
+			{
+				Log.out(Tag.WARNING, "Failed to find the type containing instruction %s", instructionNode);
+			}
 		}
-		if (traversal == null)
-		{
-			Log.out(Tag.WARNING, "Failed to find the type containing instruction %s", instructionNode);
-			return null;
-		}
-		IType type = (IType) ((AbstractTypeDeclaration) traversal).resolveBinding().getJavaElement();
-		if (type == null)
-		{
-			Log.out(Tag.WARNING, "Failed to find the type containing instruction %s", instructionNode);
-		}
-		return type;
+
+		return containingType;
+	}
+
+	public ICompilationUnit getCompilationUnit()
+	{
+		return containingSource.getSource();
 	}
 
 	public String getContainingTypename()

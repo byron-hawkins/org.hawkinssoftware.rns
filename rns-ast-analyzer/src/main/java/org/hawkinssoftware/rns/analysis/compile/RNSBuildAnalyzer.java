@@ -165,6 +165,7 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 				for (ICompilationUnit source : fragment.getCompilationUnits())
 				{
 					parser.requestParsing(source);
+					sourcesToAnalyze.add(source.getPrimary().findPrimaryType().getFullyQualifiedName());
 				}
 			}
 		}

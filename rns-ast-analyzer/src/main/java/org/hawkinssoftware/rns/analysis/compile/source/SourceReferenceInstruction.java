@@ -33,7 +33,7 @@ import org.hawkinssoftware.rns.core.util.UnknownEnumConstantException;
 public class SourceReferenceInstruction<InstructionType extends ASTNode, InstructionBindingType extends IBinding> extends
 		SourceInstruction<SourceReferenceInstruction.Kind, InstructionType, InstructionBindingType>
 {
-	
+
 	/**
 	 * DOC comment task awaits.
 	 * 
@@ -81,7 +81,7 @@ public class SourceReferenceInstruction<InstructionType extends ASTNode, Instruc
 			return (instructionType.isAssignableFrom(instruction.getClass()) && instructionBindingType.isAssignableFrom(instructionBinding.getClass()));
 		}
 	}
-	
+
 	private static String createDisplayName(Kind kind, IType referredType, IBinding instructionNodeBinding)
 	{
 		switch (kind)
@@ -89,10 +89,10 @@ public class SourceReferenceInstruction<InstructionType extends ASTNode, Instruc
 			case EXPRESSION:
 			case EXTENSION:
 			case TYPE_REFERENCE:
-				return referredType.getFullyQualifiedName();
+				return referredType.getTypeQualifiedName();
 			case METHOD_CALL:
 			case METHOD_OVERRIDE:
-				return referredType.getFullyQualifiedName() + "." + instructionNodeBinding.getName();
+				return referredType.getTypeQualifiedName() + "." + instructionNodeBinding.getName();
 			default:
 				throw new UnknownEnumConstantException(kind);
 		}

@@ -33,7 +33,7 @@ import org.hawkinssoftware.rns.core.util.UnknownEnumConstantException;
 public class SourceDeclarationInstruction<InstructionType extends ASTNode, InstructionBindingType extends IBinding> extends
 		SourceInstruction<SourceDeclarationInstruction.Kind, InstructionType, InstructionBindingType>
 {
-	
+
 	/**
 	 * DOC comment task awaits.
 	 * 
@@ -85,11 +85,26 @@ public class SourceDeclarationInstruction<InstructionType extends ASTNode, Instr
 		}
 	}
 
+	private static String createTypeQualifiedName(Kind kind, IBinding binding)
+	{
+		switch (kind)
+		{
+			case TYPE_DECLARATION:
+				return ((IType) binding.getJavaElement()).getTypeQualifiedName();
+			case METHOD_DECLARATION:
+				return ((IType) ((IMethodBinding) binding).getDeclaringClass().getJavaElement()).getTypeQualifiedName() + "." + binding.getName();
+			case FIELD_DECLARATION:
+				return ((IType) ((IVariableBinding) binding).getDeclaringClass().getJavaElement()).getTypeQualifiedName() + "." + binding.getName();
+			default:
+				throw new UnknownEnumConstantException(kind);
+		}
+	}
+
 	private final String qualifiedName;
 
 	SourceDeclarationInstruction(Kind kind, InstructionType instructionNode, ASTNode markerReferenceNode, InstructionBindingType instructionNodeBinding)
 	{
-		super(kind, instructionNode, markerReferenceNode, instructionNodeBinding, createQualifiedName(kind, instructionNodeBinding));
+		super(kind, instructionNode, markerReferenceNode, instructionNodeBinding, createTypeQualifiedName(kind, instructionNodeBinding));
 		qualifiedName = createQualifiedName(kind, instructionNodeBinding);
 	}
 

@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.jdt.core.JavaModelException;
+import org.hawkinssoftware.rns.core.role.DomainRole;
 import org.hawkinssoftware.rns.core.role.DomainSpecifications;
 
 /**
@@ -57,8 +58,8 @@ public class DomainSpecificationBindings
 					specifications.getParentDomain(domain.getDomainTypename()));
 			if ((parentDomain != null) && !containsAny(parentDomain, domains))
 			{
-				result.addProblem("Containment violation: a member of %s must also be a member of %s", domain.getDomainTypename(),
-						parentDomain.getDomainTypename());
+				result.addProblem(DomainRole.class.getSimpleName() + " containment violation: a member of %s must also be a member of %s",
+						domain.getDomainTypename(), parentDomain.getDomainTypename());
 			}
 		}
 
@@ -120,7 +121,7 @@ public class DomainSpecificationBindings
 
 				if (matches.size() > 1)
 				{
-					result.addProblem("Domain orthogonal set collision: %s must not coincide on any type.", buffer.toString());
+					result.addProblem(DomainRole.class.getSimpleName() + " orthogonal set collision: %s must not coincide on any type.", buffer.toString());
 				}
 
 				for (String packagePattern : packagePatterns)
