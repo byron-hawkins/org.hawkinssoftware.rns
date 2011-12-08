@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
 
 /**
  * DOC comment task awaits.
@@ -26,6 +27,11 @@ class PublicationConstraintCache
 	private final Map<String, Map<String, AggregatePublicationConstraint>> constraintsByTypeThenMethod = new HashMap<String, Map<String, AggregatePublicationConstraint>>();
 	private final Map<String, AggregatePublicationConstraint> constraintsByType = new HashMap<String, AggregatePublicationConstraint>();
 
+	private String getMethodKey(IMethod method) throws JavaModelException
+	{
+		return method.getElementName() + method.getSignature();
+	}
+	
 	void typeChanged(IType type)
 	{
 		getMethodConstraints(type).clear();
@@ -37,9 +43,9 @@ class PublicationConstraintCache
 		return constraintsByType.get(type.getFullyQualifiedName());
 	}
 
-	AggregatePublicationConstraint getMethodConstraints(IMethod method)
+	AggregatePublicationConstraint getMethodConstraints(IMethod method) throws JavaModelException
 	{
-		return getMethodConstraints(method.getDeclaringType()).get(method.getElementName());
+		return getMethodConstraints(method.getDeclaringType()).get(getMethodKey(method));
 	}
 
 	boolean hasTypeConstraints(IType type)
@@ -47,14 +53,14 @@ class PublicationConstraintCache
 		return constraintsByType.containsKey(type.getFullyQualifiedName());
 	}
 
-	boolean hasMethodConstraints(IMethod method)
+	boolean hasMethodConstraints(IMethod method) throws JavaModelException
 	{
 		Map<String, AggregatePublicationConstraint> constraints = constraintsByTypeThenMethod.get(method.getDeclaringType().getFullyQualifiedName());
 		if (constraints == null)
 		{
 			return false;
 		}
-		return constraints.containsKey(method.getElementName());
+		return constraints.containsKey(getMethodKey(method));
 	}
 
 	void putTypeConstraints(IType type, AggregatePublicationConstraint constraints)
@@ -62,9 +68,9 @@ class PublicationConstraintCache
 		constraintsByType.put(type.getFullyQualifiedName(), constraints);
 	}
 
-	void putMethodConstraints(IMethod method, AggregatePublicationConstraint constraints)
+	void putMethodConstraints(IMethod method, AggregatePublicationConstraint constraints) throws JavaModelException
 	{
-		getMethodConstraints(method.getDeclaringType()).put(method.getElementName(), constraints);
+		getMethodConstraints(method.getDeclaringType()).put(getMethodKey(method), constraints);
 	}
 
 	private Map<String, AggregatePublicationConstraint> getMethodConstraints(IType type)

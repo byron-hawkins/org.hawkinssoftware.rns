@@ -51,7 +51,7 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 	{
 		return ALL_BUILDERS.get(project);
 	}
-	
+
 	public static final String BUILDER_ID = "org.hawkinssoftware.rns.analysis.compile.builder";
 
 	private static Map<IProject, RNSBuildAnalyzer> ALL_BUILDERS = new HashMap<IProject, RNSBuildAnalyzer>();
@@ -76,7 +76,7 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 	{
 		return engine.domainRelationshipChecker;
 	}
-	
+
 	@Override
 	protected void startupOnInitialize()
 	{
@@ -85,12 +85,12 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 		try
 		{
 			Log.addOutput(System.out);
-			
+
 			javaProject = JavaCore.create(getProject());
 			parser = new JavaSourceParser(javaProject);
 			engine = new RNSAnalysisEngine(javaProject, parser, this);
 			parser.addListener(TypeHierarchyCache.getInstance().getSourceParserListener());
-			
+
 			ALL_BUILDERS.put(getProject(), this);
 
 			try
@@ -118,6 +118,8 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 	protected void clean(IProgressMonitor monitor) throws CoreException
 	{
 		requestFullReparse();
+		engine.domainRelationshipChecker.refreshSpecifications();
+
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -263,7 +265,7 @@ public class RNSBuildAnalyzer extends IncrementalProjectBuilder implements RNSAn
 			referencingAnalyzer.referredTypesToAnalyze.add(type.getFullyQualifiedName());
 		}
 	}
-	
+
 	/**
 	 * DOC comment task awaits.
 	 * 
