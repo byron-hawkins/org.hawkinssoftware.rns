@@ -1,11 +1,9 @@
 
 RNS Bytecode Instrumentation Agent
 ----------------------------------
-The runtime component of [Role Normalization and Synthesis]
-[parent], this bytecode instrumentation agent implements its 
-aspect-oriented and message-oriented features.
+The runtime component of [Role Normalization and Synthesis], this bytecode instrumentation agent implements its aspect-oriented and message-oriented features.
 
-[parent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns/README.md
+[Role Normalization and Synthesis]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns/README.md
 
 #### Artifact
 
@@ -40,8 +38,7 @@ The following features require the agent to be installed:
 1. Profilers using bytecode instrumentation will usually have
    conflicts with the RNS agent and fail to connect.
 2. Performance is quite poor for certain features, many of which
-   would be more properly implemented in the [AST analyzer]
-   [rns-ast-analyzer]; please consider that this is a prototype 
+   would be more properly implemented in the [AST analyzer]; please consider that this is a prototype 
    implementation.
    
-[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
+[AST analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
