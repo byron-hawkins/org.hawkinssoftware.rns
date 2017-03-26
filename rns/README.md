@@ -5,9 +5,9 @@ Role Normalization and Synthesis
 
 The **rns** project is the parent of 3 modules that comprise 
 the prototype Java implementation of 
-[Role Normalization and Synthesis] [website]. 
+[Role Normalization and Synthesis]. 
 
-[website]: http://www.hawkinssoftware.net/oss/rns
+[Role Normalization and Synthesis]: http://www.hawkinssoftware.net/oss/rns
 
 1. [rns-core], a pure Java library 
 2. [rns-ast-analyzer], an Eclipse AST analyzer 
@@ -27,22 +27,20 @@ project by:
 3. Deploying the [rns-agent] with any product that uses the 
    runtime features of **RNS**
 
-For an example of RNS usage, see the [Azia User Interface Library]
-[azia].
+For an example of RNS usage, see the [Azia User Interface Library].
 
-[azia]: https://github.com/byron-hawkins/org.hawkinssoftware.azia/blob/master/azia/README.md
+[Azia User Interface Library]: https://github.com/byron-hawkins/org.hawkinssoftware.azia/blob/master/azia/README.md
 
 #### Resources
 
 1. All artifacts are made available under the accompanying
    [Eclipse Public License v1.0][License]
 2. Source code may be obtained from [GitHub]
-3. Snapshots are available from my [Maven repository][snapshots]
-4. Documentation can be found at [HawkinsSoftware][website]   
+3. Snapshots are available from my [Maven repository] 
 
 [License]: http://www.eclipse.org/legal/epl-v10.html
 [GitHub]: https://www.github.com/byron-hawkins
-[snapshots]: https://www.github.com/byron-hawkins/snapshots
+[Maven repository]: https://www.github.com/byron-hawkins/snapshots
    
 #### Features
 
