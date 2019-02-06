@@ -13,9 +13,12 @@ the prototype Java implementation of
 2. [rns-ast-analyzer], an Eclipse AST analyzer 
 3. [rns-agent], a bytecode instrumentation agent 
 
-[rns-core]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/README.md
-[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
-[rns-agent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-agent/blob/master/rns-agent/README.md
+[rns-core]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/README.md
+[rns-core]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/README.md
+[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-ast-analyzer/README.md
+[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-ast-analyzer/README.md
+[rns-agent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-agent/README.md
+[rns-agent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-agent/README.md
 
 #### Usage
 
@@ -85,15 +88,24 @@ For an example of RNS usage, see the [Azia User Interface Library].
     	+ type hierarchy
     	+ method pattern-matching 
 
-[DomainRole]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/role/DomainRole.java
-[@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
-[@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
-[@ExtensionConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/ExtensionConstraint.java
-[ExecutionPath]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/moa/ExecutionPath.java
-[@InitializationAspect]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/InitializationAspect.java
-[@ValidateRead]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateRead.java
-[@ValidateWrite]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateWrite.java
-[ClassLoadObserver]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/ClassLoadObserver.java
+[DomainRole]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/role/DomainRole.java
+[DomainRole]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/role/DomainRole.java
+[@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
+[@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
+[@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
+[@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
+[@ExtensionConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/ExtensionConstraint.java
+[@ExtensionConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/ExtensionConstraint.java
+[ExecutionPath]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/moa/ExecutionPath.java
+[ExecutionPath]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/moa/ExecutionPath.java
+[@InitializationAspect]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/InitializationAspect.java
+[@InitializationAspect]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/InitializationAspect.java
+[@ValidateRead]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateRead.java
+[@ValidateRead]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateRead.java
+[@ValidateWrite]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateWrite.java
+[@ValidateWrite]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateWrite.java
+[ClassLoadObserver]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/ClassLoadObserver.java
+[ClassLoadObserver]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/ClassLoadObserver.java
 
 
       

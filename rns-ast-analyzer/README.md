@@ -36,9 +36,12 @@ The developer specifies publication constraints using annotations:
 Workspace errors will indicate any violations to RNS constraints 
 (within any project having the RNS Nature)
 
-[@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
-[@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
-[@ExtensionConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/ExtensionConstraint.java
+[@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
+[@InvocationConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/InvocationConstraint.java
+[@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
+[@VisibilityConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/VisibilityConstraint.java
+[@ExtensionConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/ExtensionConstraint.java
+[@ExtensionConstraint]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/publication/ExtensionConstraint.java
 
 #### Known Issues
 

@@ -15,8 +15,10 @@ Add the jar as a dependency in your Java project. Most features
 also depend on the [Eclipse AST analyzer][rns-ast-analyzer] and 
 the [bytecode instrumentation agent][rns-agent].
 
-[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
-[rns-agent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-agent/blob/master/rns-agent/README.md
+[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-ast-analyzer/README.md
+[rns-ast-analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-ast-analyzer/README.md
+[rns-agent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-agent/README.md
+[rns-agent]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-agent/README.md
 
 #### Usage
 
@@ -33,6 +35,7 @@ the [bytecode instrumentation agent][rns-agent].
 1. Domain features are more fully explained in the 
    [RNS documentation][website]
 
-[DomainRole]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/role/DomainRole.java
+[DomainRole]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/role/DomainRole.java
+[DomainRole]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/role/DomainRole.java
 [DTD]: http://www.hawkinssoftware.net/dtd/domain-scope-1.4.dtd
 [website]: http://www.hawkinssoftware.net/oss/rns

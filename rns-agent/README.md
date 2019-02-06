@@ -27,11 +27,16 @@ The following features require the agent to be installed:
 3. <code>[@ValidateRead]</code> and <code>[@ValidateWrite]</code>
 4. <code>[ClassLoadObserver]</code>
 
-[ExecutionPath]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/moa/ExecutionPath.java
-[@InitializationAspect]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/InitializationAspect.java
-[@ValidateRead]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateRead.java
-[@ValidateWrite]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateWrite.java
-[ClassLoadObserver]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-core/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/ClassLoadObserver.java
+[ExecutionPath]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/moa/ExecutionPath.java
+[ExecutionPath]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/moa/ExecutionPath.java
+[@InitializationAspect]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/InitializationAspect.java
+[@InitializationAspect]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/InitializationAspect.java
+[@ValidateRead]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateRead.java
+[@ValidateRead]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateRead.java
+[@ValidateWrite]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateWrite.java
+[@ValidateWrite]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/validation/ValidateWrite.java
+[ClassLoadObserver]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/ClassLoadObserver.java
+[ClassLoadObserver]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-core/src/main/java/org/hawkinssoftware/rns/core/aop/ClassLoadObserver.java
 
 #### Known Issues
 
@@ -41,4 +46,5 @@ The following features require the agent to be installed:
    would be more properly implemented in the [AST analyzer]; please consider that this is a prototype 
    implementation.
    
-[AST analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns-ast-analyzer/blob/master/rns-ast-analyzer/README.md
+[AST analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-ast-analyzer/README.md
+[AST analyzer]: https://github.com/byron-hawkins/org.hawkinssoftware.rns/blob/master/rns-ast-analyzer/README.md
