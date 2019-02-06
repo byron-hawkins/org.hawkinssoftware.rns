@@ -1,0 +1,59 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>rns-agent</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Role Normalization and Synthesis Agent</name>
+	<description>Bytecode instrumentation agent supporting the Role Normalization and Synthesis architecture.</description>
+	<url>http://www.hawkinssoftware.net</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Premain-Class>org.hawkinssoftware.rns.agent.RNSInstrumentationAgent</Premain-Class>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.bcel</groupId>
+			<artifactId>bcel</artifactId>
+			<!-- latest: bcel-6.0-20111017.142955-8 -->
+			<version>6.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hawkinssoftware.rns</groupId>
+			<artifactId>rns-core</artifactId>
+			<version>0.1.1-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+	
+	<parent>
+		<groupId>org.hawkinssoftware.rns</groupId>
+		<artifactId>rns</artifactId>
+		<version>0.1.1-SNAPSHOT</version>
+		<relativePath>../../project/rns</relativePath>
+	</parent>
+	
+</project>
