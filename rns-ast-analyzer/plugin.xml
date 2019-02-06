@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="org.hawkinssoftware.rns.analysis.compile.builder"
+         name="RNS Build Analyzer"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            callOnEmptyDelta="true"
+            hasNature="true"
+            isConfigurable="true">
+         <run
+               class="org.hawkinssoftware.rns.analysis.compile.RNSBuildAnalyzer">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="toggle-rns-analysis-nature"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="org.hawkinssoftware.rns.analysis.compile.nature.RNSNatureContextMenuToggleAction"
+               enablesFor="+"
+               id="toggle-rns-analysis-nature-action"
+               label="Toggle RNS Nature"
+               menubarPath="additions">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="org.hawkinssoftware.rns.analysis.compile.nature"
+         name="RNS Analysis Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.hawkinssoftware.rns.analysis.compile.nature.RNSNature">
+         </run>
+      </runtime>
+      <builder
+            id="org.hawkinssoftware.rns.analysis.compile.builder">
+      </builder>
+      <requires-nature
+            id="org.eclipse.jdt.core.javanature">
+      </requires-nature>
+   </extension>
+   <extension
+         id="org.hawkinssoftware.rns.analysis.compile.message-stack.error"
+         name="@ValidationMethod error"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.jdt.core.problem">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         id="org.hawkinssoftware.rns.analysis.compile.publication-constraint.error"
+         name="@InvocationConstraint, @VisibilityConstraint, @ExtensionConstraint error"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.jdt.core.problem">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         id="org.hawkinssoftware.rns.analysis.compile.domain-role.error"
+         name="@DomainRole error"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.jdt.core.problem">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         id="org.hawkinssoftware.rns.analysis.compile.defined-identity.error"
+         name="@DefinedIdentity error"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.jdt.core.problem">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         id="org.hawkinssoftware.rns.analysis.compile.domain-relationship.error"
+         name="@DomainRole.Join error"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.jdt.core.problem">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+</plugin>

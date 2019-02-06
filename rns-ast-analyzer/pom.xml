@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>rns-ast-analyzer</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<name>RNS AST Analyzer</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<repositories>
+		<repository>
+			<id>sonatype-beta</id>
+			<name>Sonatype Betas</name>
+			<url>http://repository.sonatype.org/content/groups/sonatype-public-grid/</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.hawkinssoftware.rns</groupId>
+			<artifactId>rns-core</artifactId>
+			<version>0.1.1-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<parent>
+		<groupId>org.hawkinssoftware.rns</groupId>
+		<artifactId>rns</artifactId>
+		<version>0.1.1-SNAPSHOT</version>
+		<relativePath>../../project/rns</relativePath>
+	</parent>
+
+</project>
