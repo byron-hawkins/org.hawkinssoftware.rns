@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>rns-core</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<name>Role Normalization and Synthesis Core</name>
+	<description>Core definitions and implementation for the Role Normalization and Synthesis architecture.</description>
+
+	<parent>
+		<groupId>org.hawkinssoftware.rns</groupId>
+		<artifactId>rns</artifactId>
+		<version>0.1.1-SNAPSHOT</version>
+		<relativePath>../../project/rns</relativePath>
+	</parent>
+ 
+</project>  

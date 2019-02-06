@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT orthogonal-scope (orthogonal-set*,package-containment*,domain-containment*)>
+
+<!ELEMENT orthogonal-set (domain*, package*)>
+<!ELEMENT domain (#PCDATA)>
+<!ELEMENT package (#PCDATA)>
+
+<!ELEMENT package-containment EMPTY>
+<!ELEMENT domain-containment EMPTY>
+
+<!ATTLIST package-containment parent-package CDATA #REQUIRED>
+<!ATTLIST package-containment child-domain CDATA #REQUIRED>
+<!ATTLIST domain-containment parent-domain CDATA #REQUIRED>
+<!ATTLIST domain-containment child-domain CDATA #REQUIRED>
+
